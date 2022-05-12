@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import Post, Review, User
+from app.models import db, Post, Review, User
+from app.forms.post_form import PostForm
 
 post_routes = Blueprint('posts', __name__)
 
@@ -13,27 +14,33 @@ def posts():
     return jsonify(response)
 
 
-@post_routes.route('/<int:id>/')
-def get_posts(id):
+@post_routes.route('/<int:id>')
+def get_reviews(id):
     post = Post.query.get(id)
-    reviews = {"reviews": review.to_dict() for review in post.reviews}
+    reviews = {"reviews": [review.to_dict() for review in post.reviews]}
     return jsonify(reviews)
 
 
-# @post_routes.route('/', methods=["POST"])
-# def post_photo():
-#     form = PostForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         data = form.data
-#         new_photo = Photo(
-#             user_id=current_user.id,
-#             photo_url=data["photo_url"],
-#             caption=data["caption"]
-#         )
-#         db.session.add(new_photo)
-#         db.session.commit()
-#         return new_photo.to_dict()
+@post_routes.route('/', methods=["POST"])
+@login_required
+def add_post():
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        new_post = Post(
+            user_id=current_user.id,
+            product_name=data["product_name"],
+            price=data["price"]
+        )
+    # new_post = Post(
+    #     user_id=current_user.id,
+    #     product_name=request.json['product_name'],
+    #     price=request.json['price']
+    # )
+        db.session.add(new_post)
+        db.session.commit()
+        return new_post.to_dict()
 
-#     if form.errors:
-#         return form.errors, 403
+    if form.errors:
+        return form.errors, 403
