@@ -31,8 +31,23 @@ export const getPosts = () => async (dispatch) => {
     dispatch(get_Posts(data))
   }
 }
+export const addPost = (postData) => async (dispatch) => {
 
-// TODO edit, delete
+  const { productName, price } = postData
+
+
+  const response = await fetch('/api/posts/', {
+    method: "POST",
+    headers: {
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify({
+      productName,
+      price
+    })
+
+  })
+}
 const initialState = {}
 
 export default function reducer(state = initialState, action) {
@@ -42,5 +57,19 @@ export default function reducer(state = initialState, action) {
       newState = {}
       action.posts.posts.forEach(post => { newState[post.id] = post });
       return newState
+    case ADD_POST:
+      newState = { ...state }
+      newState[action.post.id] = action.post
+      return newState
+    case EDIT_POST:
+      newState = { ...state }
+      newState[action.post.id] = action.post
+      return newState
+    case DELETE_POST:
+      newState = { ...state }
+      delete newState[action.id]
+      return newState
+
+
   }
 }

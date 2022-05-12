@@ -22,25 +22,25 @@ def get_reviews(id):
 
 
 @post_routes.route('/', methods=["POST"])
-# @login_required
+@login_required
 def add_post():
-    # form = PostForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
-    # if form.validate_on_submit():
-    #     # data = form.data
-    #     new_post = Post(
-    #         user_id=current_user.id,
-    #         product_name=data["product_name"],
-    #         price=data["price"]
-    #     )
-    new_post = Post(
-        user_id=1,
-        product_name=request.json['product_name'],
-        price=request.json['price']
-    )
-    db.session.add(new_post)
-    db.session.commit()
-    return new_post.to_dict()
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        new_post = Post(
+            user_id=current_user.id,
+            product_name=data["product_name"],
+            price=data["price"]
+        )
+    # new_post = Post(
+    #     user_id=current_user.id,
+    #     product_name=request.json['product_name'],
+    #     price=request.json['price']
+    # )
+        db.session.add(new_post)
+        db.session.commit()
+        return new_post.to_dict()
 
     if form.errors:
         return form.errors, 403
