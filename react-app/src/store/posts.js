@@ -47,6 +47,15 @@ export const addPost = (postData) => async (dispatch) => {
     })
 
   })
+  if (response.ok) {
+    const post = await response.json()
+    dispatch(add_Post(post))
+    return post
+  } else {
+    const errors = await response.json()
+    console.log(errors)
+    return { errors: errors }
+  }
 }
 const initialState = {}
 
