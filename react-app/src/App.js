@@ -10,6 +10,7 @@ import User from './components/User';
 import HomePage from './components/HomePage'
 import PostForm from './components/PostForm'
 import { authenticate } from './store/session';
+import "./index.css"
 
 function App() {
   const [loaded, setLoaded] = useState(false);

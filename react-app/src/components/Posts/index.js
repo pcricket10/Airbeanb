@@ -13,7 +13,7 @@ function Posts() {
     dispatch(getPosts())
   }, [dispatch])
   return (
-    <h1>hi</h1>
+    <h1>hello from posts</h1>
 
   )
 }
