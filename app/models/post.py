@@ -22,6 +22,15 @@ class Post(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
+
+    def edit_product_name(self, product_name):
+        self.product_name = product_name
+        return product_name
+
+    def edit_price(self, price):
+        self.price = price
+        return price
+
     users = db.relationship("User", back_populates="posts")
     reviews = db.relationship(
         "Review", back_populates="posts", cascade="all, delete")

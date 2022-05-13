@@ -1,12 +1,18 @@
 // import { csrfFetch } from "./csrf"
+import { CLEAR_STORE } from "./users"
 
-const GET_POSTS = 'posts/loadPosts'
-const ADD_POST = 'posts/addPost'
-const EDIT_POST = 'posts/editPost'
-const DELETE_POST = 'posts/deletePost'
+const GET_POSTS = 'post/GET_POSTS'
+const GET_USER_POSTS = 'post/GET_USER_POSTS'
+const ADD_POST = 'post/ADD_POST'
+const EDIT_POST = 'post/EDIT_POST'
+const DELETE_POST = 'post/DELETE_POST'
 
 const get_Posts = (posts) => ({
   type: GET_POSTS,
+  posts
+})
+const get_User_Posts = (posts) => ({
+  type: GET_USER_POSTS,
   posts
 })
 
@@ -31,6 +37,15 @@ export const getPosts = () => async (dispatch) => {
     dispatch(get_Posts(data))
   }
 }
+
+export const getUserPosts = (id) => async (dispatch) => {
+  const response = await fetch(`/api/users/${id}/posts/`)
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(get_User_Posts(data))
+  }
+}
+
 export const addPost = (postData) => async (dispatch) => {
 
   const { productName, price } = postData
@@ -39,7 +54,7 @@ export const addPost = (postData) => async (dispatch) => {
   const response = await fetch('/api/posts/', {
     method: "POST",
     headers: {
-      "Content-Type": 'application/json'
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
       productName,
@@ -66,6 +81,10 @@ export default function reducer(state = initialState, action) {
       newState = {}
       action.posts.posts.forEach(post => { newState[post.id] = post });
       return newState
+    case GET_USER_POSTS:
+      newState = {}
+      action.posts.posts.forEach(post => newState[post.id] = post)
+      return newState
     case ADD_POST:
       newState = { ...state }
       newState[action.post.id] = action.post
@@ -78,6 +97,10 @@ export default function reducer(state = initialState, action) {
       newState = { ...state }
       delete newState[action.id]
       return newState
+    case CLEAR_STORE:
+      return initialState
+    default:
+      return state;
 
 
   }
