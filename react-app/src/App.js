@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import HomePage from './components/HomePage'
 import PostForm from './components/PostForm'
+import UserPost from './components/UserPost'
 import { authenticate } from './store/session';
 import "./index.css"
 
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path='/posts/new' exact={true}>
           <PostForm />
+        </Route>
+        <Route path='/posts/:postId' exact={true}>
+          <UserPost />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList />

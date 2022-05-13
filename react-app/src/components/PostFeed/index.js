@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { getPosts } from '../../store/posts'
-import "./Posts.css"
+import "./PostFeed.css"
 
-function Posts() {
+function PostFeed() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
   const posts = useSelector(state => Object.values(state.posts))
@@ -22,7 +22,9 @@ function Posts() {
           <li className="post-container" key={post.id}>
             <div>
               <h1 className="product-name">{post.product_name}</h1>
-              <img className="bean" src={post.img_url} alt={post.product_name}></img>
+              <NavLink to={`/posts/${post.id}`}>
+                <img className="bean" src={post.img_url} alt={post.product_name}></img>
+              </NavLink>
             </div>
           </li>
         ))}
@@ -32,4 +34,4 @@ function Posts() {
   )
 }
 
-export default Posts;
+export default PostFeed;
