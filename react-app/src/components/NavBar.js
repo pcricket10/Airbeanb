@@ -11,13 +11,14 @@ const NavBar = ({ isLoaded }) => {
   return (
     <nav>
       <ul className='nav-button-container'>
+        <li>
+          <NavLink to='/' exact={true} activeClassName='active'>
+            <button className='nav-button'> Home</button>
+          </NavLink>
+        </li>
         {!sessionUser && (
           <>
-            <li>
-              <NavLink to='/' exact={true} activeClassName='active'>
-                <button className='nav-button'> Home</button>
-              </NavLink>
-            </li>
+
             <li>
               <NavLink to='/login' exact={true} activeClassName='active'>
                 <button className='nav-button'>Login </button>

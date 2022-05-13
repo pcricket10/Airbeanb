@@ -21,3 +21,6 @@ flex-wrap: wrap;
 justify-content: center;
 
 }
+.product-name {
+  text-align: center;
+}

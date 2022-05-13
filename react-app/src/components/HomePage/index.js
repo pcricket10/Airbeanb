@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getPosts } from '../../store/posts'
-import Posts from '../Posts'
+import PostFeed from '../PostFeed'
 import "./HomePage.css"
 
 function HomePage() {
@@ -19,7 +19,7 @@ function HomePage() {
     <>
       <h1>Welcome to AirBeanb!</h1>
       <h2>Find bean farmers from around the world!</h2>
-      <Posts />
+      <PostFeed />
     </>
   )
 }

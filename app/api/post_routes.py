@@ -7,11 +7,21 @@ post_routes = Blueprint('posts', __name__)
 
 
 @post_routes.route('/')
-def posts():
-    user = User.query.get(current_user.id)
-    posts = user.posts
-    response = {'posts': [post.to_dict() for post in posts]}
+def all_posts():
+    # user = User.query.get(current_user.id)
+    posts = Post.query.all()
+    response = {"posts": [post.to_dict() for post in posts]}
     return jsonify(response)
+
+
+# @post_routes.route('/')
+# def user_posts():
+#     user = User.query.get(current_user.id)
+#     posts = user.posts
+#     response = {"posts": [post.to_dict() for post in posts]}
+#     return jsonify(response)
+
+# TODO implement later
 
 
 @post_routes.route('/<int:id>')
@@ -30,17 +40,31 @@ def add_post():
         data = form.data
         new_post = Post(
             user_id=current_user.id,
-            product_name=data["product_name"],
+            product_name=data["productName"],
             price=data["price"]
         )
-    # new_post = Post(
-    #     user_id=current_user.id,
-    #     product_name=request.json['product_name'],
-    #     price=request.json['price']
-    # )
         db.session.add(new_post)
         db.session.commit()
         return new_post.to_dict()
 
     if form.errors:
         return form.errors, 403
+
+
+@post_routes.route('/<int:id>', methods=["PATCH"])
+def patch_post(id):
+    post = Post.query.get(id)
+    form = PostForm()
+    data = form.data
+    post.edit_product_name(data['productName'])
+    post.edit_price(data['price'])
+    db.session.commit()
+    return post.to_dict()
+
+
+@post_routes.route('/<int:id>', methods=["DELETE"])
+def delete_post(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    return {"Message": "Post deleted successfully"}
