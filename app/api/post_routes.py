@@ -10,7 +10,7 @@ post_routes = Blueprint('posts', __name__)
 def posts():
     user = User.query.get(current_user.id)
     posts = user.posts
-    response = {'posts': [post.to_dict() for post in posts]}
+    response = {"posts": [post.to_dict() for post in posts]}
     return jsonify(response)
 
 
@@ -22,7 +22,7 @@ def get_reviews(id):
 
 
 @post_routes.route('/', methods=["POST"])
-# @login_required
+@login_required
 def add_post():
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -30,14 +30,9 @@ def add_post():
         data = form.data
         new_post = Post(
             user_id=current_user.id,
-            product_name=data["product_name"],
+            product_name=data["productName"],
             price=data["price"]
         )
-    # new_post = Post(
-    #     user_id=current_user.id,
-    #     product_name=request.json['product_name'],
-    #     price=request.json['price']
-    # )
         db.session.add(new_post)
         db.session.commit()
         return new_post.to_dict()
@@ -51,7 +46,7 @@ def patch_post(id):
     post = Post.query.get(id)
     form = PostForm()
     data = form.data
-    post.edit_product_name(data['product_name'])
+    post.edit_product_name(data['productName'])
     post.edit_price(data['price'])
     db.session.commit()
     return post.to_dict()
