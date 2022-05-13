@@ -22,7 +22,7 @@ def get_reviews(id):
 
 
 @post_routes.route('/', methods=["POST"])
-@login_required
+# @login_required
 def add_post():
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -44,3 +44,22 @@ def add_post():
 
     if form.errors:
         return form.errors, 403
+
+
+@post_routes.route('/<int:id>', methods=["PATCH"])
+def patch_post(id):
+    post = Post.query.get(id)
+    form = PostForm()
+    data = form.data
+    post.edit_product_name(data['product_name'])
+    post.edit_price(data['price'])
+    db.session.commit()
+    return post.to_dict()
+
+
+@post_routes.route('/<int:id>', methods=["DELETE"])
+def delete_post(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    return {"Message": "Post deleted successfully"}

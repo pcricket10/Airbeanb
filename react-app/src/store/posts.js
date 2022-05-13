@@ -1,4 +1,5 @@
 // import { csrfFetch } from "./csrf"
+import { CLEAR_STORE } from "./users"
 
 const GET_POSTS = 'posts/loadPosts'
 const ADD_POST = 'posts/addPost'
@@ -78,6 +79,10 @@ export default function reducer(state = initialState, action) {
       newState = { ...state }
       delete newState[action.id]
       return newState
+    case CLEAR_STORE:
+      return initialState
+    default:
+      return state;
 
 
   }
