@@ -21,25 +21,11 @@ function Posts() {
         {posts.map(post => (
           <li className="post-container" key={post.id}>
             <div>
-              <h1>{post.product_name}</h1>
+              <h1 className="product-name">{post.product_name}</h1>
+              <img className="bean" src={post.img_url} alt={post.product_name}></img>
             </div>
           </li>
         ))}
-
-
-
-        {/* <img className="bean" src="https://solidstarts.com/wp-content/uploads/Green-Bean-scaled.jpg"></img>
-        <img className="bean" src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/03/variety-of-beans.jpg?quality=82&strip=1"></img>
-        <img className="bean" src="https://solidstarts.com/wp-content/uploads/Green-Bean-scaled.jpg"></img>
-        <img className="bean" src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/03/variety-of-beans.jpg?quality=82&strip=1"></img>
-        <img className="bean" src="https://solidstarts.com/wp-content/uploads/Green-Bean-scaled.jpg"></img>
-        <img className="bean" src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/03/variety-of-beans.jpg?quality=82&strip=1"></img>
-        <img className="bean" src="https://solidstarts.com/wp-content/uploads/Green-Bean-scaled.jpg"></img>
-        <img className="bean" src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/03/variety-of-beans.jpg?quality=82&strip=1"></img>
-        <img className="bean" src="https://solidstarts.com/wp-content/uploads/Green-Bean-scaled.jpg"></img>
-        <img className="bean" src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/03/variety-of-beans.jpg?quality=82&strip=1"></img>
-        <img className="bean" src="https://solidstarts.com/wp-content/uploads/Green-Bean-scaled.jpg"></img>
-        <img className="bean" src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/03/variety-of-beans.jpg?quality=82&strip=1"></img> */}
       </ul>
     </>
 

@@ -7,11 +7,21 @@ post_routes = Blueprint('posts', __name__)
 
 
 @post_routes.route('/')
-def posts():
-    user = User.query.get(current_user.id)
-    posts = user.posts
+def all_posts():
+    # user = User.query.get(current_user.id)
+    posts = Post.query.all()
     response = {"posts": [post.to_dict() for post in posts]}
     return jsonify(response)
+
+
+# @post_routes.route('/')
+# def user_posts():
+#     user = User.query.get(current_user.id)
+#     posts = user.posts
+#     response = {"posts": [post.to_dict() for post in posts]}
+#     return jsonify(response)
+
+# TODO implement later
 
 
 @post_routes.route('/<int:id>')
