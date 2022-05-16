@@ -3,7 +3,7 @@ import { CLEAR_STORE } from "./users"
 
 const GET_POSTS = 'post/GET_POSTS'
 const GET_USER_POSTS = 'post/GET_USER_POSTS'
-// const GET_ONE_POST = 'post/GET_ONE_POST'
+const GET_ONE_POST = 'post/GET_ONE_POST'
 const ADD_POST = 'post/ADD_POST'
 const EDIT_POST = 'post/EDIT_POST'
 const DELETE_POST = 'post/DELETE_POST'
@@ -12,10 +12,10 @@ const get_Posts = (posts) => ({
   type: GET_POSTS,
   posts
 })
-// const get_One_Post = (post) => ({
-//   type: GET_ONE_POST,
-//   post
-// })
+const get_One_Post = (post) => ({
+  type: GET_ONE_POST,
+  post
+})
 const get_User_Posts = (posts) => ({
   type: GET_USER_POSTS,
   posts
@@ -35,13 +35,14 @@ const delete_Post = (id) => ({
   id
 })
 
-// export const getOnePost = (id) => async (dispatch) => {
-//   const response = await fetch(`/api/posts/${id}`)
-//   if (response.ok) {
-//     const data = await response.json();
-//     dispatch(get_One_Post(data))
-//   }
-// }
+export const getOnePost = (id) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${id}`)
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data, "data\n\n\n")
+    dispatch(get_One_Post(data))
+  }
+}
 
 export const getPosts = () => async (dispatch) => {
   const response = await fetch(`/api/posts/`);
@@ -97,12 +98,13 @@ export default function reducer(state = initialState, action) {
       return newState
     case GET_USER_POSTS:
       newState = {}
-      action.posts.posts.forEach(post => newState[post.id] = post)
+      action.posts.posts.forEach(post => { newState[post.id] = post })
       return newState
-    // case GET_ONE_POST:
-    //   newState = {}
-    //   action.posts.posts[id]
-
+    case GET_ONE_POST:
+      newState = { ...state }
+      newState[action.post.id] = action.post
+      console.log("STATE", newState)
+      return newState
     case ADD_POST:
       newState = { ...state }
       newState[action.post.id] = action.post
