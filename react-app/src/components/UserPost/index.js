@@ -9,18 +9,29 @@ function UserPost() {
   // const user = useSelector(state => state.session.user)
   const posts = useSelector(state => Object.values(state.posts))
   const { postId } = useParams()
-  console.log("post id", postId)
-  const currentPost = posts[postId]
+
+  // console.log("post", post)
+  const currentPost = posts[postId - 1]
   console.log(currentPost, "current post")
 
 
 
-  // useEffect(() => {
-  //   dispatch(getOnePost(postId))
-  // })
+  useEffect(() => {
+    dispatch(getOnePost(postId))
+  }, [dispatch])
   return (
-    <h1>{currentPost.product_name}</h1>
+    <>
+
+      <h1>{currentPost?.product_name}</h1>
+      <img className="bean" src={currentPost?.img_url} alt={currentPost?.product_name} />
+      <p>${currentPost?.price} </p>
+    </>
+
+
+
   )
+  // console.log(post, "POST")
+  // return (<h1>hi</h1>)
 
 }
 export default UserPost;

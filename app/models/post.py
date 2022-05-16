@@ -20,8 +20,10 @@ class Post(db.Model):
             'user_id': self.user_id,
             'product_name': self.product_name,
             'img_url': self.img_url,
+            'price': self.price,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            # 'reviews': self.reviews.to_dict()
         }
 
     def edit_product_name(self, product_name):

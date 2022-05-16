@@ -16,7 +16,7 @@ function PostFeed() {
   }, [dispatch])
   return (
     <><h1>hello from posts</h1>
-      {/* <p>hard coded. change later</p> */}
+
       <ul className="bean-feed" >
         {posts.map(post => (
           <li className="post-container" key={post.id}>

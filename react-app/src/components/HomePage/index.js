@@ -10,11 +10,11 @@ function HomePage() {
   const posts = useSelector(state => state.postState)
   const [isLoaded, setIsloaded] = useState(false)
 
-  useEffect(() => {
-    dispatch(getPosts())
-      .then(() => setIsloaded(true))
-  }, [dispatch])
-  if (!isLoaded) return null
+  // useEffect(() => {
+  //   dispatch(getPosts())
+  //     .then(() => setIsloaded(true))
+  // }, [dispatch])
+  // if (!isLoaded) return null
   return (
     <>
       <h1>Welcome to AirBeanb!</h1>

@@ -27,8 +27,8 @@ def all_posts():
 @post_routes.route('/<int:id>')
 def get_reviews(id):
     post = Post.query.get(id)
-    reviews = {"reviews": [review.to_dict() for review in post.reviews]}
-    return jsonify(reviews)
+    # reviews = {"reviews": [post.to_dict() for post in post]}
+    return post.to_dict()
 
 
 @post_routes.route('/', methods=["POST"])
