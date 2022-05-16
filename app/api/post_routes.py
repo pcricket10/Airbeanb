@@ -41,7 +41,8 @@ def add_post():
         new_post = Post(
             user_id=current_user.id,
             product_name=data["productName"],
-            price=data["price"]
+            price=data["price"],
+            img_url=data["imgUrl"]
         )
         db.session.add(new_post)
         db.session.commit()
@@ -51,18 +52,19 @@ def add_post():
         return form.errors, 403
 
 
-@post_routes.route('/<int:id>', methods=["PATCH"])
+@post_routes.route('/<int:id>/', methods=["PATCH"])
 def patch_post(id):
     post = Post.query.get(id)
     form = PostForm()
     data = form.data
     post.edit_product_name(data['productName'])
     post.edit_price(data['price'])
+    post.edit_img_url(data['ImgUrl'])
     db.session.commit()
     return post.to_dict()
 
 
-@post_routes.route('/<int:id>', methods=["DELETE"])
+@post_routes.route('/<int:id>/', methods=["DELETE"])
 def delete_post(id):
     post = Post.query.get(id)
     db.session.delete(post)

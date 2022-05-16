@@ -12,6 +12,7 @@ import PostForm from './components/PostForm'
 import UserPost from './components/UserPost'
 import { authenticate } from './store/session';
 import "./index.css"
+import EditForm from './components/EditForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route path='/posts/new' exact={true}>
           <PostForm />
+        </Route>
+        <Route path='/posts/:postId/edit' exact={true}>
+          <EditForm />
         </Route>
         <Route path='/posts/:postId' exact={true}>
           <UserPost />

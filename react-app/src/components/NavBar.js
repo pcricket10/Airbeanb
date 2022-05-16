@@ -40,6 +40,13 @@ const NavBar = ({ isLoaded }) => {
                 <button className='nav-button'> Users </button>
               </NavLink>
             </li>
+
+            <li>
+              <NavLink to='/posts/new'>
+                <button className='nav-button'>New</button>
+              </NavLink>
+            </li>
+
             <li>
               <LogoutButton />
             </li>

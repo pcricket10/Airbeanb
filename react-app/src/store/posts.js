@@ -63,7 +63,7 @@ export const getUserPosts = (id) => async (dispatch) => {
 
 export const addPost = (postData) => async (dispatch) => {
 
-  const { productName, price } = postData
+  const { productName, price, imgUrl } = postData
 
 
   const response = await fetch('/api/posts/', {
@@ -73,7 +73,8 @@ export const addPost = (postData) => async (dispatch) => {
     },
     body: JSON.stringify({
       productName,
-      price
+      price,
+      imgUrl
     })
 
   })
@@ -86,6 +87,31 @@ export const addPost = (postData) => async (dispatch) => {
     console.log(errors)
     return { errors: errors }
   }
+}
+
+export const editPost = (id, product_name, img_url, price) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${id}/`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ product_name, img_url, price })
+  })
+  if (response.ok) {
+    const post = await response.json()
+    dispatch(edit_Post(post))
+    return post;
+  }
+}
+
+export const deletePost = (id) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${id}/`, {
+    method: 'DELETE'
+  });
+  if (response.ok) {
+    dispatch(delete_Post(id))
+  }
+
 }
 const initialState = {}
 

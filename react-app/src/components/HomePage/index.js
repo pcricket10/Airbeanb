@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Popup from 'reactjs-popup';
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getPosts } from '../../store/posts'
@@ -20,6 +21,7 @@ function HomePage() {
       <h1>Welcome to AirBeanb!</h1>
       <h2>Find bean farmers from around the world!</h2>
       <PostFeed />
+
     </>
   )
 }
