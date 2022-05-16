@@ -34,6 +34,10 @@ class Post(db.Model):
         self.price = price
         return price
 
+    def edit_img_url(self, img_url):
+        self.img_url = img_url
+        return img_url
+
     users = db.relationship("User", back_populates="posts")
     reviews = db.relationship(
         "Review", back_populates="posts", cascade="all, delete")
