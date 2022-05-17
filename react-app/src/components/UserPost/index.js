@@ -5,6 +5,7 @@ import { getOnePost, deletePost } from '../../store/posts'
 import Popup from "reactjs-popup";
 import EditForm from '../EditForm'
 import DeleteForm from '../DeleteForm'
+import ReviewFeed from '../ReviewFeed'
 import "./UserPost.css"
 
 
@@ -47,7 +48,7 @@ function UserPost() {
       <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
         <DeleteForm />
       </Popup>
-      <button className="delete-button" onClick={handleDelete}>Old Delete</button>
+      <ReviewFeed />
     </div>
 
 
