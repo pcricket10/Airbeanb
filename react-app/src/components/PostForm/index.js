@@ -2,6 +2,7 @@ import { React, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addPost } from "../../store/posts";
+import "./PostForm.css"
 
 const PostForm = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const PostForm = () => {
     }
   }
   return (
-    <>
+    <div className="post-form-modal">
       <h1>Post New Listing</h1>
       <form className="post-form">
         <div>
@@ -46,7 +47,7 @@ const PostForm = () => {
           <button type="submit" onClick={handleSubmit}>Submit</button>
         </div>
       </form>
-    </>
+    </div>
   )
 
 }

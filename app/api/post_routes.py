@@ -53,6 +53,7 @@ def add_post():
 
 
 @post_routes.route('/<int:id>/', methods=["PATCH"])
+@login_required
 def patch_post(id):
     post = Post.query.get(id)
     form = PostForm()
@@ -65,6 +66,7 @@ def patch_post(id):
 
 
 @post_routes.route('/<int:id>/', methods=["DELETE"])
+@login_required
 def delete_post(id):
     post = Post.query.get(id)
     db.session.delete(post)
