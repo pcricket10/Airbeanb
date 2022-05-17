@@ -25,7 +25,7 @@ def all_posts():
 
 
 @post_routes.route('/<int:id>')
-def get_reviews(id):
+def get_post(id):
     post = Post.query.get(id)
     # reviews = {"reviews": [post.to_dict() for post in post]}
     return post.to_dict()
@@ -40,9 +40,9 @@ def add_post():
         data = form.data
         new_post = Post(
             user_id=current_user.id,
-            product_name=data["productName"],
+            product_name=data["product_name"],
             price=data["price"],
-            img_url=data["imgUrl"]
+            img_url=data["img_url"]
         )
         db.session.add(new_post)
         db.session.commit()
@@ -53,18 +53,21 @@ def add_post():
 
 
 @post_routes.route('/<int:id>/', methods=["PATCH"])
+@login_required
 def patch_post(id):
     post = Post.query.get(id)
+    print("\n\n\n\n\n\n\nPOST\n\n\n\n\n", post)
     form = PostForm()
     data = form.data
-    post.edit_product_name(data['productName'])
+    post.edit_product_name(data['product_name'])
     post.edit_price(data['price'])
-    post.edit_img_url(data['ImgUrl'])
+    post.edit_img_url(data['img_url'])
     db.session.commit()
     return post.to_dict()
 
 
 @post_routes.route('/<int:id>/', methods=["DELETE"])
+@login_required
 def delete_post(id):
     post = Post.query.get(id)
     db.session.delete(post)

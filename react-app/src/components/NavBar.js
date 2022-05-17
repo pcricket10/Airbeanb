@@ -3,6 +3,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import PostForm from './PostForm'
+import Popup from 'reactjs-popup'
 import "./NavBar.css"
 
 const NavBar = ({ isLoaded }) => {
@@ -42,9 +44,13 @@ const NavBar = ({ isLoaded }) => {
             </li>
 
             <li>
-              <NavLink to='/posts/new'>
+              {/* <NavLink to='/posts/new'>
                 <button className='nav-button'>New</button>
-              </NavLink>
+              </NavLink> */}
+              <Popup trigger={<button className='nav-button'>New</button>}
+                modal nested>
+                <PostForm />
+              </Popup>
             </li>
 
             <li>

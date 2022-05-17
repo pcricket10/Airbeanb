@@ -8,8 +8,6 @@ function PostFeed() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
   const posts = useSelector(state => Object.values(state.posts))
-  // const postsObject = useSelector(state => state.posts)
-  // const posts = Object.values(postsObject)
 
   useEffect(() => {
     dispatch(getPosts())

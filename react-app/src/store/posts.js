@@ -39,7 +39,6 @@ export const getOnePost = (id) => async (dispatch) => {
   const response = await fetch(`/api/posts/${id}`)
   if (response.ok) {
     const data = await response.json();
-    console.log(data, "data\n\n\n")
     dispatch(get_One_Post(data))
   }
 }
@@ -63,7 +62,7 @@ export const getUserPosts = (id) => async (dispatch) => {
 
 export const addPost = (postData) => async (dispatch) => {
 
-  const { productName, price, imgUrl } = postData
+  const { product_name, price, img_url } = postData
 
 
   const response = await fetch('/api/posts/', {
@@ -72,9 +71,9 @@ export const addPost = (postData) => async (dispatch) => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      productName,
+      product_name,
       price,
-      imgUrl
+      img_url
     })
 
   })
@@ -89,16 +88,15 @@ export const addPost = (postData) => async (dispatch) => {
   }
 }
 
-export const editPost = (id, product_name, img_url, price) => async (dispatch) => {
-  const response = await fetch(`/api/posts/${id}/`, {
+export const editPost = (post) => async (dispatch) => {
+  const response = await fetch(`/api/posts/${post.id}/`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ product_name, img_url, price })
+    body: JSON.stringify({ product_name: post.product_name, img_url: post.img_url, price: post.price })
   })
   if (response.ok) {
-    const post = await response.json()
     dispatch(edit_Post(post))
     return post;
   }
@@ -129,7 +127,6 @@ export default function reducer(state = initialState, action) {
     case GET_ONE_POST:
       newState = { ...state }
       newState[action.post.id] = action.post
-      console.log("STATE", newState)
       return newState
     case ADD_POST:
       newState = { ...state }
