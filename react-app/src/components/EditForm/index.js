@@ -6,11 +6,12 @@ import { editPost } from "../../store/posts";
 const EditForm = () => {
   const { postId } = useParams()
   const post = useSelector(state => state.posts[+postId])
+  console.log("post", post)
   const dispatch = useDispatch();
   const history = useHistory();
-  const [productName, setProductName] = useState('')
-  const [price, setPrice] = useState('')
-  const [imgUrl, setImgUrl] = useState('')
+  const [product_name, setProduct_name] = useState(post.product_name)
+  const [price, setPrice] = useState(post.price)
+  const [img_url, setImg_url] = useState(post.img_url)
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
@@ -18,10 +19,12 @@ const EditForm = () => {
 
     const editedPost = {
       ...post,
-      productName, price, imgUrl
+      product_name, price, img_url
     }
 
-    const response = await dispatch(editPost(postId))
+
+    const response = await dispatch(editPost(editedPost))
+
     history.push(`/posts/${postId}`)
     if (response?.errors) {
       setErrors(response.errors)
@@ -33,7 +36,7 @@ const EditForm = () => {
       <form className="post-form">
         <div>
           <label>Product Name</label>
-          <input type="text" value={productName} onChange={e => setProductName(e.target.value)} required></input>
+          <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
         </div>
         <div>
           <label>Price</label>
@@ -42,7 +45,7 @@ const EditForm = () => {
         </div>
         <div>
           <label>Image Url</label>
-          <input type="text" value={imgUrl} onChange={e => setImgUrl(e.target.value)} required></input>
+          <input type="text" value={img_url} onChange={e => setImg_url(e.target.value)} required></input>
 
         </div>
         <div>

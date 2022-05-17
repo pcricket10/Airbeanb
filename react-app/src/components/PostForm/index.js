@@ -7,16 +7,16 @@ import "./PostForm.css"
 const PostForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [productName, setProductName] = useState('')
+  const [product_name, setProduct_name] = useState('')
   const [price, setPrice] = useState('')
-  const [imgUrl, setImgUrl] = useState('')
+  const [img_url, setImg_url] = useState('')
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newPost = {
-      productName, price, imgUrl
+      product_name, price, img_url
     }
 
     const response = await dispatch(addPost(newPost))
@@ -31,7 +31,7 @@ const PostForm = () => {
       <form className="post-form">
         <div>
           <label>Product Name</label>
-          <input type="text" value={productName} onChange={e => setProductName(e.target.value)} required></input>
+          <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
         </div>
         <div>
           <label>Price</label>
@@ -40,7 +40,7 @@ const PostForm = () => {
         </div>
         <div>
           <label>Image Url</label>
-          <input type="text" value={imgUrl} onChange={e => setImgUrl(e.target.value)} required></input>
+          <input type="text" value={img_url} onChange={e => setImg_url(e.target.value)} required></input>
 
         </div>
         <div>

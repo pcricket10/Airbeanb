@@ -5,9 +5,9 @@ from wtforms.validators import DataRequired, URL
 
 
 class PostForm(FlaskForm):
-    productName = StringField("productName", validators=[
+    product_name = StringField("product_name", validators=[
         DataRequired(message='Please enter a product name')])
     price = FloatField("price", validators=[DataRequired(
         message="please enter a valid amount")])
-    imgUrl = StringField("imgUrl", validators=[
+    img_url = StringField("img_url", validators=[
                          DataRequired(message='Please enter an image url')])

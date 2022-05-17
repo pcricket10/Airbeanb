@@ -12,16 +12,16 @@ function UserPost() {
   const dispatch = useDispatch();
   const history = useHistory();
   // const user = useSelector(state => state.session.user)
-  const posts = useSelector(state => Object.values(state.posts))
+  const posts = useSelector(state => state.posts)
   const { postId } = useParams()
 
-  // console.log("post", post)
-  const currentPost = posts[postId - 1]
-  console.log(currentPost, "current post")
+
+  const currentPost = posts[postId]
+
   const handleEdit = async (e) => {
     e.preventDefault();
 
-    console.log("edit")
+
   }
   const handleDelete = async (e) => {
     e.preventDefault();
