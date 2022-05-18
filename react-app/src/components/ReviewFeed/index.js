@@ -5,6 +5,7 @@ import { getPostReviews } from "../../store/reviews";
 import Popup from "reactjs-popup";
 import "./ReviewFeed.css"
 import UserReview from "../UserReview";
+import ReviewForm from "../ReviewForm";
 
 function ReviewFeed({ postId }) {
   const dispatch = useDispatch();
@@ -24,6 +25,10 @@ function ReviewFeed({ postId }) {
   return (
     <><h1>hello from reviews</h1>
       <ul className="review-feed">
+
+        <Popup trigger={<button className="review-button">Leave a review</button>} modal nested>
+          <ReviewForm postId={postId} />
+        </Popup>
 
         {
           reviews.map(review => (

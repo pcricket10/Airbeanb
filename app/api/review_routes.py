@@ -12,7 +12,7 @@ review_routes = Blueprint('reviews', __name__)
 def add_review():
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    post_id = request.json["post_id"]
+    post_id = request.json['post_id']
     if form.validate_on_submit():
         data = form.data
         new_review = Review(
