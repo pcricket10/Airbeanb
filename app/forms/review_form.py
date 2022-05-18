@@ -5,5 +5,5 @@ from wtforms.validators import DataRequired, URL
 
 
 class ReviewForm(FlaskForm):
-    body = TextAreaField("Review", validators=[
+    content = TextAreaField("Review", validators=[
                          DataRequired(message='Please provide a review')])

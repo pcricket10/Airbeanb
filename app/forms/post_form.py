@@ -10,4 +10,4 @@ class PostForm(FlaskForm):
     price = FloatField("price", validators=[DataRequired(
         message="please enter a valid amount")])
     img_url = StringField("img_url", validators=[
-                         DataRequired(message='Please enter an image url')])
+        DataRequired(message='Please enter an image url'), URL(message="this must be a valid URL")])

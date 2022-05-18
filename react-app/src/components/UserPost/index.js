@@ -31,10 +31,13 @@ function UserPost() {
     console.log("delete")
   }
 
-
+  console.log(postId)
   useEffect(() => {
     dispatch(getOnePost(postId))
+
   }, [dispatch])
+
+
 
   return (
     <div className="bean-container">
@@ -51,7 +54,7 @@ function UserPost() {
       <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
         <DeleteForm />
       </Popup>
-      <ReviewFeed />
+      <ReviewFeed postId={postId} />
     </div>
 
 

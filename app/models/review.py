@@ -16,10 +16,16 @@ class Review(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'user_id': self.user_id,
             'content': self.content,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
         }
+
+    def edit_content(self, content):
+        self.content = content
+        return content
+
     users = db.relationship("User", back_populates="reviews")
     posts = db.relationship(
         "Post", back_populates="reviews", cascade="all, delete")

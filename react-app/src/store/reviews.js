@@ -37,11 +37,14 @@ const delete_Review = (id) => ({
 
 
 
-export const getPostReviews = (post) => async (dispatch) => {
-  const response = await fetch(`/api/posts/${post.id}/reviews/`)
-  console.log(response, "\n\n\n\n\n")
+export const getPostReviews = (id) => async (dispatch) => {
+  // console.log(id, "IDIDID")
+  const response = await fetch(`/api/posts/${id}/reviews/`)
+  // console.log(response, "response\n\n\n\n\n")
   if (response.ok) {
+
     const data = await response.json();
+    console.log("DATA", data)
     dispatch(get_Post_Reviews(data))
   }
 }
@@ -73,6 +76,7 @@ export const addReview = (reviewData) => async (dispatch) => {
 }
 
 export const editReview = (review) => async (dispatch) => {
+  const { content } = review;
   const response = await fetch(`/api/reviews/${review.id}/`, {
     method: "PATCH",
     headers: {

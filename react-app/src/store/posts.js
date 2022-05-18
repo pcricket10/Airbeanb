@@ -78,13 +78,16 @@ export const addPost = (postData) => async (dispatch) => {
 
   })
   if (response.ok) {
-    const post = await response.json()
-    dispatch(add_Post(post))
-    return post
+    const data = await response.json()
+    dispatch(add_Post(data))
+    return null
+  } else if (response.satus < 500) {
+    const data = await response.json()
+    if (data.errors) {
+      return data.errors
+    }
   } else {
-    const errors = await response.json()
-    console.log(errors)
-    return { errors: errors }
+    return ['An error occurred. Please try again.']
   }
 }
 

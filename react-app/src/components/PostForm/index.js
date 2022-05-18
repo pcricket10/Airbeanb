@@ -19,16 +19,26 @@ const PostForm = () => {
       product_name, price, img_url
     }
 
-    const response = await dispatch(addPost(newPost))
-    history.push("/")
-    if (response.errors) {
-      setErrors(response.errors)
+    const data = await dispatch(addPost(newPost))
+    if (data) {
+      setErrors(data)
     }
+    history.push("/")
   }
+
+
+
+
   return (
     <div className="post-form-modal">
       <h1>Post New Listing</h1>
+
       <form className="post-form">
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
         <div>
           <label>Product Name</label>
           <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
