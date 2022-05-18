@@ -13,7 +13,7 @@ function PostFeed() {
     dispatch(getPosts())
   }, [dispatch])
   return (
-    <><h1>hello from posts</h1>
+    <>
 
       <ul className="bean-feed" >
         {posts.map(post => (

@@ -31,24 +31,30 @@ function UserPost() {
     console.log("delete")
   }
 
-
+  console.log(postId)
   useEffect(() => {
     dispatch(getOnePost(postId))
+
   }, [dispatch])
 
-  return (
-    <div>
 
-      <h1>{currentPost?.product_name}</h1>
+
+  return (
+    <div className="bean-container">
+
+      <p className="bean-title">{currentPost?.product_name}</p>
       <img className="bean" src={currentPost?.img_url} alt={currentPost?.product_name} />
       <p>${currentPost?.price} </p>
+      <p>Created: {new Date(currentPost?.created_at).toLocaleString()}</p>
+      <p>Edited: {new Date(currentPost?.updated_at).toLocaleString()}</p>
+
       <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
         <EditForm />
       </Popup>
       <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
         <DeleteForm />
       </Popup>
-      <ReviewFeed />
+      <ReviewFeed postId={postId} />
     </div>
 
 
