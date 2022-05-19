@@ -1,3 +1,4 @@
+from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Post, Review, User
@@ -59,8 +60,8 @@ def add_post():
         db.session.commit()
         return new_post.to_dict()
 
-    if form.errors:
-        return form.errors, 403
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 403
 
 
 @post_routes.route('/<int:id>/', methods=["PATCH"])
@@ -81,6 +82,8 @@ def patch_post(id):
 @login_required
 def delete_post(id):
     post = Post.query.get(id)
+    if current_user.id != post.user_id:
+        return {"hello": "there"}
     db.session.delete(post)
     db.session.commit()
     return {"Message": "Post deleted successfully"}

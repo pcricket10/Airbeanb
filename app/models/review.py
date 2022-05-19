@@ -29,4 +29,4 @@ class Review(db.Model):
 
     users = db.relationship("User", back_populates="reviews")
     posts = db.relationship(
-        "Post", back_populates="reviews", cascade="all, delete")
+        "Post", back_populates="reviews")
