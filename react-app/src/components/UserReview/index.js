@@ -11,6 +11,7 @@ import ReviewEditForm from "../ReviewEditForm";
 function UserReview({ review }) {
   const dispatch = useDispatch();
   const [user, setUser] = useState({});
+  const sessionUser = useSelector(state => state.session.user)
   useEffect(() => {
     (async () => {
       const response = await fetch(`/api/users/${review.user_id}`);
@@ -29,18 +30,21 @@ function UserReview({ review }) {
     const response = await dispatch(deleteReview(review.id))
   }
   return (
-    <li className="review-container" key={review?.id}>
+    <li className="review-container" key={review.id}>
       <div>
-        <p>posted by {user.username}</p>
+        <p>posted by {user?.username}</p>
         {review?.content}
+        {(review?.user_id === sessionUser?.id) &&
+          <>
+            <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
+              <ReviewEditForm reviewId={review.id} />
+            </Popup>
+            <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
+              <ReviewDeleteForm reviewId={review.id} />
 
-        <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
-          <ReviewEditForm reviewId={review.id} />
-        </Popup>
-        <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
-          <ReviewDeleteForm reviewId={review.id} />
-
-        </Popup>
+            </Popup>
+          </>
+        }
       </div>
     </li>
   )

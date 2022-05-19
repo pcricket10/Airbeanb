@@ -64,7 +64,7 @@ export const addPost = (postData) => async (dispatch) => {
 
   const { product_name, price, img_url } = postData
 
-
+  console.log("attempting fetch")
   const response = await fetch('/api/posts/', {
     method: "POST",
     headers: {
@@ -81,12 +81,14 @@ export const addPost = (postData) => async (dispatch) => {
     const data = await response.json()
     dispatch(add_Post(data))
     return null
-  } else if (response.satus < 500) {
+  } else if (response.status < 500) {
     const data = await response.json()
+    console.log(data.errors, "@####$#$Q$@#")
     if (data.errors) {
       return data.errors
     }
   } else {
+    console.log("hit the else")
     return ['An error occurred. Please try again.']
   }
 }

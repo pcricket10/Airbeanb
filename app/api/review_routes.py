@@ -44,6 +44,9 @@ def patch_post(id):
 @login_required
 def delete_review(id):
     review = Review.query.get(id)
+    if current_user.id != review.user_id:
+        return {"hello": "there"}
     db.session.delete(review)
     db.session.commit()
+
     return {"Message": "Review deleted successfully"}
