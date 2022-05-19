@@ -7,6 +7,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     product_name = db.Column(db.String(50), nullable=False)
+    location = db.Column(db.String(255), nullable=False)
     img_url = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Float(precision=2), nullable=False)
     created_at = db.Column(
@@ -19,6 +20,7 @@ class Post(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'product_name': self.product_name,
+            'location': self.location,
             'img_url': self.img_url,
             'price': self.price,
             'created_at': self.created_at,
@@ -37,6 +39,9 @@ class Post(db.Model):
     def edit_img_url(self, img_url):
         self.img_url = img_url
         return img_url
+
+    def edit_location(self, location):
+        self.location = location
 
     users = db.relationship("User", back_populates="posts")
     reviews = db.relationship(
