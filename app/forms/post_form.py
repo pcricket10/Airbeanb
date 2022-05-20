@@ -11,3 +11,4 @@ class PostForm(FlaskForm):
         message="please enter a valid amount")])
     img_url = StringField("img_url", validators=[
         DataRequired(message='Please enter an image url'), URL(message="this must be a valid URL")])
+    location = StringField("location", validators=[DataRequired(message="Please enter a location")])
