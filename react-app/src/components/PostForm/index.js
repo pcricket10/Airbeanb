@@ -9,6 +9,7 @@ const PostForm = () => {
   const history = useHistory();
   const [product_name, setProduct_name] = useState('')
   const [price, setPrice] = useState('')
+  const [location, setLocation] = useState('')
   const [img_url, setImg_url] = useState('')
   const [errors, setErrors] = useState([])
 
@@ -27,8 +28,6 @@ const PostForm = () => {
   }
 
 
-
-
   return (
     <div className="post-form-modal">
       <h1>Post New Listing</h1>
@@ -42,6 +41,11 @@ const PostForm = () => {
         <div>
           <label>Product Name</label>
           <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
+        </div>
+
+        <div>
+          <label>Location</label>
+          <input type="text" value={location} onChange={e => setLocation(e.target.value)} required></input>
         </div>
         <div>
           <label>Price</label>
