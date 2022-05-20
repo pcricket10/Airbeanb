@@ -10,13 +10,14 @@ const PostForm = () => {
   const [product_name, setProduct_name] = useState('')
   const [price, setPrice] = useState('')
   const [img_url, setImg_url] = useState('')
+  const [location, setLocation] = useState('')
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newPost = {
-      product_name, price, img_url
+      product_name, location, price, img_url
     }
 
     const data = await dispatch(addPost(newPost))
@@ -41,6 +42,11 @@ const PostForm = () => {
         </div>
         <div>
           <label>Product Name</label>
+          <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
+        </div>
+
+        <div>
+          <label>Location</label>
           <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
         </div>
         <div>
