@@ -9,7 +9,6 @@ const PostForm = () => {
   const history = useHistory();
   const [product_name, setProduct_name] = useState('')
   const [price, setPrice] = useState('')
-  const [location, setLocation] = useState('')
   const [img_url, setImg_url] = useState('')
   const [location, setLocation] = useState('')
   const [errors, setErrors] = useState([])
