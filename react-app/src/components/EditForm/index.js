@@ -10,6 +10,7 @@ const EditForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [product_name, setProduct_name] = useState(post.product_name)
+  const [location, setLocation] = useState(post.location)
   const [price, setPrice] = useState(post.price)
   const [img_url, setImg_url] = useState(post.img_url)
   const [errors, setErrors] = useState([])
@@ -19,7 +20,7 @@ const EditForm = () => {
 
     const editedPost = {
       ...post,
-      product_name, price, img_url
+      product_name, location, price, img_url
     }
 
 
@@ -37,6 +38,10 @@ const EditForm = () => {
         <div>
           <label>Product Name</label>
           <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
+        </div>
+        <div>
+          <label>Location</label>
+          <input type="text" value={location} onChange={e => setLocation(e.target.value)} required></input>
         </div>
         <div>
           <label>Price</label>

@@ -62,7 +62,7 @@ export const getUserPosts = (id) => async (dispatch) => {
 
 export const addPost = (postData) => async (dispatch) => {
 
-  const { product_name, price, img_url } = postData
+  const { product_name, location, price, img_url } = postData
 
   console.log("attempting fetch")
   const response = await fetch('/api/posts/', {
@@ -72,6 +72,7 @@ export const addPost = (postData) => async (dispatch) => {
     },
     body: JSON.stringify({
       product_name,
+      location,
       price,
       img_url
     })
@@ -99,7 +100,7 @@ export const editPost = (post) => async (dispatch) => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ product_name: post.product_name, img_url: post.img_url, price: post.price })
+    body: JSON.stringify({ product_name: post.product_name, location: post.location, img_url: post.img_url, price: post.price })
   })
   if (response.ok) {
     dispatch(edit_Post(post))

@@ -53,8 +53,8 @@ def add_post():
         new_post = Post(
             user_id=current_user.id,
             product_name=data["product_name"],
-            price=data["price"],
             location=data["location"],
+            price=data["price"],
             img_url=data["img_url"]
         )
         db.session.add(new_post)
@@ -73,8 +73,8 @@ def patch_post(id):
     form = PostForm()
     data = form.data
     post.edit_product_name(data['product_name'])
-    post.edit_price(data['price'])
     post.edit_location(data['location'])
+    post.edit_price(data['price'])
     post.edit_img_url(data['img_url'])
     db.session.commit()
     return post.to_dict()

@@ -8,9 +8,9 @@ const PostForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [product_name, setProduct_name] = useState('')
+  const [location, setLocation] = useState('')
   const [price, setPrice] = useState('')
   const [img_url, setImg_url] = useState('')
-  const [location, setLocation] = useState('')
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
