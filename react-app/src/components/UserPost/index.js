@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useParams, useHistory } from 'react-router-dom'
-import { getOnePost, deletePost } from '../../store/posts'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
 import Popup from "reactjs-popup";
-import EditForm from '../EditForm'
-import DeleteForm from '../DeleteForm'
-import ReviewFeed from '../ReviewFeed'
-import "./UserPost.css"
+import { deletePost, getOnePost } from '../../store/posts';
+import DeleteForm from '../DeleteForm';
+import EditForm from '../EditForm';
+import ReviewFeed from '../ReviewFeed';
+import "./UserPost.css";
 
 
 function UserPost() {

@@ -1,4 +1,4 @@
-// import { csrfFetch } from "./csrf"
+
 import { CLEAR_STORE } from "./users"
 
 const GET_POSTS = 'post/GET_POSTS'

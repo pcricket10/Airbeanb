@@ -1,8 +1,8 @@
-from app.models import Post, Review, User
+
 from flask_login import login_required, current_user
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from app.forms.review_form import ReviewForm
-from app.models import db, Post, Review, User
+from app.models import db, Review
 
 review_routes = Blueprint('reviews', __name__)
 

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useParams } from 'react-router-dom'
-import { getPostReviews } from "../../store/reviews";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import Popup from "reactjs-popup";
-import "./ReviewFeed.css"
-import UserReview from "../UserReview";
+import { getPostReviews } from "../../store/reviews";
 import ReviewForm from "../ReviewForm";
+import UserReview from "../UserReview";
+import "./ReviewFeed.css";
 
 function ReviewFeed({ postId }) {
   const dispatch = useDispatch();

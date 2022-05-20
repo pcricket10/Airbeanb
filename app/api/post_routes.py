@@ -1,7 +1,7 @@
 from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Post, Review, User
+from app.models import db, Post, Review
 from app.forms.post_form import PostForm
 
 post_routes = Blueprint('posts', __name__)

@@ -2,10 +2,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Popup from 'reactjs-popup';
 import LogoutButton from './auth/LogoutButton';
-import PostForm from './PostForm'
-import Popup from 'reactjs-popup'
-import "./NavBar.css"
+import "./NavBar.css";
+import PostForm from './PostForm';
 
 const NavBar = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user);

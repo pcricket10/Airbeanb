@@ -1,8 +1,8 @@
-import { React, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { React, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addReview } from "../../store/reviews";
-import "./ReviewForm.css"
+import "./ReviewForm.css";
 
 const ReviewForm = ({ postId }) => {
   const dispatch = useDispatch();
