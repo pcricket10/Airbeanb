@@ -11,13 +11,14 @@ const PostForm = () => {
   const [price, setPrice] = useState('')
   const [location, setLocation] = useState('')
   const [img_url, setImg_url] = useState('')
+  const [location, setLocation] = useState('')
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newPost = {
-      product_name, price, img_url
+      product_name, location, price, img_url
     }
 
     const data = await dispatch(addPost(newPost))
