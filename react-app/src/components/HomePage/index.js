@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import PostFeed from '../PostFeed';
+import About from "../About";
 import "./HomePage.css";
 
 function HomePage() {
@@ -18,7 +19,7 @@ function HomePage() {
       <h1>Welcome to AirBeanb!</h1>
       <h2>Find bean farmers from around the world!</h2>
       <PostFeed />
-
+      <About />
     </>
   )
 }

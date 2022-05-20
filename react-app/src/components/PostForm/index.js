@@ -36,7 +36,7 @@ const PostForm = ({ close }) => {
       <h1>Post New Listing</h1>
 
       <form className="post-form">
-        <div>
+        <div className="errors">
           {errors?.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}

@@ -8,6 +8,8 @@ body {
   background: rgb(255, 255, 255);
   width: 50%;
   padding: 5px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px black;
 }
 .popup-arrow {
   color: rgb(255, 255, 255);
@@ -27,4 +29,31 @@ body {
 h1,h2 {
   text-align: center;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+
+form div{
+  margin: 10px
+}
+input {
+  position: absolute;
+  right: 10%;
+
+  width:60%;
+}
+textarea{
+  height: 100px;
+  width: 80%;
+  margin: 10px;
+  padding: 10px;
+}
+.errors div {
+  color: red
+}
+
+.delete-message{
+  color:red
+}
+.delete-button{
+  background-color: lightcoral;
 }

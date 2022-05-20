@@ -39,7 +39,6 @@ const ReviewForm = ({ postId, close }) => {
         </div>
 
         <div>
-          <label>Content</label>
           <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
 
         </div>

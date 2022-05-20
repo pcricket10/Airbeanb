@@ -19,9 +19,9 @@ function PostFeed() {
         {posts.map(post => (
           <li className="post-container" key={post.id}>
             <div>
-              <h1 className="product-name">{post.product_name}</h1>
-              <NavLink to={`/posts/${post.id}`}>
-                <img className="bean" src={post.img_url} alt={post.product_name}></img>
+              <h2 className="product-name">{post.product_name}</h2>
+              <NavLink to={`/posts/${post.id}`} className="bean-link">
+                <img className="bean-homepage" src={post.img_url} alt={post.product_name}></img>
               </NavLink>
             </div>
           </li>

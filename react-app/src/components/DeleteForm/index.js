@@ -16,10 +16,10 @@ const DeleteForm = () => {
     console.log("delete")
   }
   return (
-    <>
-      <h1>Are you sure you want to delete this post?</h1>
+    <div className="delete">
+      <h1 className="delete-message">⚠️Are you sure you want to delete this post?⚠️</h1>
       <button className="delete-button" onClick={handleDelete}>Delete</button>
-    </>
+    </div>
   )
 }
 

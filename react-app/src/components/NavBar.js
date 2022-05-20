@@ -37,11 +37,11 @@ const NavBar = ({ isLoaded }) => {
         )}
         {sessionUser && (
           <>
-            <li>
+            {/* <li>
               <NavLink to='/users' exact={true} activeClassName='active'>
                 <button className='nav-button'> Users </button>
               </NavLink>
-            </li>
+            </li> */}
 
             <li>
               {/* <NavLink to='/posts/new'>

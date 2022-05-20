@@ -15,10 +15,10 @@ const ReviewDeleteForm = ({ reviewId }) => {
     const response = await dispatch(deleteReview(reviewId))
   }
   return (
-    <>
-      <h1>Are you sure you want to delete this review?</h1>
+    <div className="delete">
+      <h1 className="delete-message">⚠️Are you sure you want to delete this review?⚠️</h1>
       <button className="delete-button" onClick={handleDelete}>Delete</button>
-    </>
+    </div>
   )
 }
 

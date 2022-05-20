@@ -37,6 +37,11 @@ const EditForm = ({ close }) => {
     <>
       <h1>Edit</h1>
       <form className="post-form">
+        <div className='errors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
         <div>
           <label>Product Name</label>
           <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>

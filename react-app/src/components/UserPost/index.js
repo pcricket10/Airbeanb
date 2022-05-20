@@ -50,10 +50,11 @@ function UserPost() {
 
       <p className="bean-title">{currentPost?.product_name}</p>
       <img className="bean" src={currentPost?.img_url} alt={currentPost?.product_name} />
-      <p>{userName ? userName : "loading"}</p>
+      <p>by: {userName ? userName : "loading"}</p>
       <p>${currentPost?.price} </p>
       <p>Created: {new Date(currentPost?.created_at).toLocaleString()}</p>
       <p>Edited: {new Date(currentPost?.updated_at).toLocaleString()}</p>
+      <p>Located at {currentPost?.location}</p>
       {(currentPost?.user_id === user?.id) &&
         <>
           <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
