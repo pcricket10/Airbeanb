@@ -49,7 +49,7 @@ const NavBar = ({ isLoaded }) => {
               </NavLink> */}
               <Popup trigger={<button className='nav-button'>New</button>}
                 modal nested>
-                <PostForm />
+                {close => <PostForm close={close} />}
               </Popup>
             </li>
 

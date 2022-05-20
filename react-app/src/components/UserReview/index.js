@@ -37,7 +37,7 @@ function UserReview({ review }) {
         {(review?.user_id === sessionUser?.id) &&
           <>
             <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
-              <ReviewEditForm reviewId={review.id} />
+              {close => <ReviewEditForm reviewId={review.id} close={close} />}
             </Popup>
             <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
               <ReviewDeleteForm reviewId={review.id} />

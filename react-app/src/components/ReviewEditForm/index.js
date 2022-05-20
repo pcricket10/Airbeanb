@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { editReview } from "../../store/reviews";
 
-const ReviewEditForm = ({ reviewId }) => {
+const ReviewEditForm = ({ reviewId, close }) => {
   const review = useSelector(state => state.reviews[+reviewId])
 
   const dispatch = useDispatch();
@@ -23,6 +23,8 @@ const ReviewEditForm = ({ reviewId }) => {
     const response = await dispatch(editReview(editedReview))
     if (response?.errors) {
       setErrors(response.errors)
+    } else {
+      close();
     }
   }
   return (

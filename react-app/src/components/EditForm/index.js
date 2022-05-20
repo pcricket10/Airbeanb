@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { editPost } from "../../store/posts";
 
-const EditForm = () => {
+const EditForm = ({ close }) => {
   const { postId } = useParams()
   const post = useSelector(state => state.posts[+postId])
   console.log("post", post)
@@ -29,6 +29,8 @@ const EditForm = () => {
     history.push(`/posts/${postId}`)
     if (response?.errors) {
       setErrors(response.errors)
+    } else {
+      close()
     }
   }
   return (

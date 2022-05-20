@@ -57,7 +57,7 @@ function UserPost() {
       {(currentPost?.user_id === user?.id) &&
         <>
           <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
-            <EditForm />
+            {close => <EditForm close={close} />}
           </Popup>
 
           <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { addPost } from "../../store/posts";
 import "./PostForm.css";
 
-const PostForm = () => {
+const PostForm = ({ close }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [product_name, setProduct_name] = useState('')
@@ -23,6 +23,9 @@ const PostForm = () => {
     const data = await dispatch(addPost(newPost))
     if (data) {
       setErrors(data)
+    } else {
+      close();
+
     }
     history.push("/")
   }

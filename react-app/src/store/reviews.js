@@ -68,7 +68,13 @@ export const addReview = (reviewData) => async (dispatch) => {
   if (response.ok) {
     const review = await response.json()
     dispatch(add_Review(review))
-    return review
+    return null
+  } else if (response.status < 500) {
+    const data = await response.json()
+    console.log(data.errors, "@####$#$Q$@#")
+    if (data.errors) {
+      return data.errors
+    }
   } else {
     const errors = await response.json()
     console.log(errors)

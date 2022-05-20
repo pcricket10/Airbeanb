@@ -89,8 +89,9 @@ export const addPost = (postData) => async (dispatch) => {
       return data.errors
     }
   } else {
-    console.log("hit the else")
-    return ['An error occurred. Please try again.']
+    const errors = await response.json()
+    console.log(errors)
+    return { errors: errors }
   }
 }
 

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { addReview } from "../../store/reviews";
 import "./ReviewForm.css";
 
-const ReviewForm = ({ postId }) => {
+const ReviewForm = ({ postId, close }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [content, setContent] = useState('')
@@ -20,7 +20,10 @@ const ReviewForm = ({ postId }) => {
 
     const data = await dispatch(addReview(newReview))
     if (data) {
+      console.log(data, "DATA")
       setErrors(data)
+    } else {
+      close();
     }
   }
 
