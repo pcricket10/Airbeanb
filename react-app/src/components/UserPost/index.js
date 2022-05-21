@@ -49,7 +49,12 @@ function UserPost() {
     <div className="bean-container">
 
       <p className="bean-title">{currentPost?.product_name}</p>
-      <img className="bean" src={currentPost?.img_url} alt={currentPost?.product_name} />
+      <img className="bean-post" src={currentPost?.img_url}
+        onError={({ currentTarget }) => {
+          currentTarget.onerror = null;
+          currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png"
+        }}
+        alt={currentPost?.product_name} />
       <p>by: {userName ? userName : "loading"}</p>
       <p>${currentPost?.price} </p>
       <p>Created: {new Date(currentPost?.created_at).toLocaleString()}</p>

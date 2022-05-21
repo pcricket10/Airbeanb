@@ -68,16 +68,17 @@ def add_post():
 @post_routes.route('/<int:id>/', methods=["PATCH"])
 @login_required
 def patch_post(id):
-    post = Post.query.get(id)
-    print("\n\n\n\n\n\n\nPOST\n\n\n\n\n", post)
     form = PostForm()
-    data = form.data
-    post.edit_product_name(data['product_name'])
-    post.edit_location(data['location'])
-    post.edit_price(data['price'])
-    post.edit_img_url(data['img_url'])
-    db.session.commit()
-    return post.to_dict()
+    if form.validate_on_submit():
+        post = Post.query.get(id)
+        data = form.data
+        post.edit_product_name(data['product_name'])
+        post.edit_location(data['location'])
+        post.edit_price(data['price'])
+        post.edit_img_url(data['img_url'])
+        db.session.commit()
+        return post.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @post_routes.route('/<int:id>/', methods=["DELETE"])

@@ -21,7 +21,12 @@ function PostFeed() {
             <div>
               <h2 className="product-name">{post.product_name}</h2>
               <NavLink to={`/posts/${post.id}`} className="bean-link">
-                <img className="bean-homepage" src={post.img_url} alt={post.product_name}></img>
+                <img className="bean-homepage" src={post.img_url}
+                  onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png"
+                  }}
+                  alt={post.product_name}></img>
               </NavLink>
             </div>
           </li>
