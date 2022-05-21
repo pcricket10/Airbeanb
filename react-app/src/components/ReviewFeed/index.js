@@ -23,10 +23,14 @@ function ReviewFeed({ postId }) {
 
   return (
     <><h2>reviews</h2>
-      <ul className="review-feed">
+      {user &&
         <Popup trigger={<button className="review-button">Leave a review</button>} modal nested>
           {close => <ReviewForm postId={postId} close={close} />}
         </Popup>
+      }
+      <ul className="review-feed">
+
+
 
         {
           reviews.map(review => (

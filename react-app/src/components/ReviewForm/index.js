@@ -32,12 +32,11 @@ const ReviewForm = ({ postId, close }) => {
       <h1>Post New Review</h1>
 
       <form className="review-form">
-        <div>
-          {/* {errors?.map((error, ind) => (
+        <div className='errors'>
+          {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
-          ))} */}
+          ))}
         </div>
-
         <div>
           <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
 

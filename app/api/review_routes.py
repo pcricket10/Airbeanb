@@ -1,6 +1,7 @@
 
 from flask_login import login_required, current_user
 from flask import Blueprint, request
+from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms.review_form import ReviewForm
 from app.models import db, Review
 
@@ -25,7 +26,7 @@ def add_review():
         return new_review.to_dict()
 
     if form.errors:
-        return form.errors, 403
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @review_routes.route('/<int:id>/', methods=["PATCH"])

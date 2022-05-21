@@ -20,6 +20,7 @@ function UserPost() {
 
   useEffect(() => {
     (async () => {
+      console.log(currentPost, "CURENTPOST")
       const response = await fetch(`/api/users/${currentPost?.user_id}`);
       const data = await response.json();
       setUserName(data?.username)
@@ -48,18 +49,27 @@ function UserPost() {
   return (
     <div className="bean-container">
 
-      <p className="bean-title">{currentPost?.product_name}</p>
-      <img className="bean-post" src={currentPost?.img_url}
-        onError={({ currentTarget }) => {
-          currentTarget.onerror = null;
-          currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png"
-        }}
-        alt={currentPost?.product_name} />
-      <p>by: {userName ? userName : "loading"}</p>
-      <p>${currentPost?.price} </p>
-      <p>Created: {new Date(currentPost?.created_at).toLocaleString()}</p>
-      <p>Edited: {new Date(currentPost?.updated_at).toLocaleString()}</p>
-      <p>Located at {currentPost?.location}</p>
+      <h2 className="bean-created">
+        Created: {new Date(currentPost?.created_at).toLocaleDateString()} by {userName ? userName : "loading"}
+
+      </h2>
+      <h1 className="bean-title">{currentPost?.product_name}</h1>
+      <div className="img-detail-container">
+        <img className="bean-post" src={currentPost?.img_url}
+          onError={({ currentTarget }) => {
+            currentTarget.onerror = null;
+            currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png"
+          }}
+          alt={currentPost?.product_name} />
+        <div className="detail-container">
+
+
+          <p>${currentPost?.price} </p>
+          <p>Edited: {new Date(currentPost?.updated_at).toLocaleString()}</p>
+          <p>Located at {currentPost?.location}</p>
+        </div>
+      </div>
+
       {(currentPost?.user_id === user?.id) &&
         <>
           <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>

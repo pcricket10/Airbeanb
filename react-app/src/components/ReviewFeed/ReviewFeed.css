@@ -1,0 +1,7 @@
+.review-feed {
+  height: 400px;
+  overflow-y: scroll;
+}
+.review-button {
+  margin-left: 50px;
+}

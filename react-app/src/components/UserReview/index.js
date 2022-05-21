@@ -7,6 +7,8 @@ import { deleteReview } from "../../store/reviews";
 import ReviewDeleteForm from '../ReviewDeleteForm'
 import ReviewEditForm from "../ReviewEditForm";
 
+import "./UserReviews.css"
+
 
 function UserReview({ review }) {
   const dispatch = useDispatch();
@@ -31,21 +33,19 @@ function UserReview({ review }) {
   }
   return (
     <li className="review-container" key={review.id}>
-      <div>
-        <p>posted by {user?.username}</p>
-        {review?.content}
-        {(review?.user_id === sessionUser?.id) &&
-          <>
-            <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
-              {close => <ReviewEditForm reviewId={review.id} close={close} />}
-            </Popup>
-            <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
-              <ReviewDeleteForm reviewId={review.id} />
+      <p>@{user?.username}</p>
+      {review?.content}
+      {(review?.user_id === sessionUser?.id) &&
+        <div className="edit-delete-buttons">
+          <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
+            {close => <ReviewEditForm reviewId={review.id} close={close} />}
+          </Popup>
+          <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
+            <ReviewDeleteForm reviewId={review.id} />
 
-            </Popup>
-          </>
-        }
-      </div>
+          </Popup>
+        </div>
+      }
     </li>
   )
 }
