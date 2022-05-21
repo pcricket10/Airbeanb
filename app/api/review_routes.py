@@ -32,13 +32,15 @@ def add_review():
 @review_routes.route('/<int:id>/', methods=["PATCH"])
 @login_required
 def patch_post(id):
-    review = Review.query.get(id)
     form = ReviewForm()
-    data = form.data
-    review.edit_content(data['content'])
-
-    db.session.commit()
-    return review.to_dict()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        review = Review.query.get(id)
+        data = form.data
+        review.edit_content(data['content'])
+        db.session.commit()
+        return review.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @review_routes.route('/<int:id>/', methods=["DELETE"])

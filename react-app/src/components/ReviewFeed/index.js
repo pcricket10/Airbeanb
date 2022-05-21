@@ -29,12 +29,9 @@ function ReviewFeed({ postId }) {
         </Popup>
       }
       <ul className="review-feed">
-
-
-
         {
           reviews.map(review => (
-            <UserReview review={review} />
+            <UserReview key={review.id} review={review} />
 
           ))}
       </ul>

@@ -69,6 +69,7 @@ def add_post():
 @login_required
 def patch_post(id):
     form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         post = Post.query.get(id)
         data = form.data

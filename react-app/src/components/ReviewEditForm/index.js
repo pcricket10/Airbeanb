@@ -35,7 +35,6 @@ const ReviewEditForm = ({ reviewId, close }) => {
           <div key={ind}>{error}</div>
         ))}
         <div>
-          <label>Content</label>
           <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
         </div>
         <div>

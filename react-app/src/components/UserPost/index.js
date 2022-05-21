@@ -64,14 +64,14 @@ function UserPost() {
         <div className="detail-container">
 
 
-          <p>${currentPost?.price} </p>
+          <p>${currentPost?.price.toLocaleString(undefined, { minimumFractionDigits: 2 })} </p>
           <p>Edited: {new Date(currentPost?.updated_at).toLocaleString()}</p>
           <p>Located at {currentPost?.location}</p>
         </div>
       </div>
 
       {(currentPost?.user_id === user?.id) &&
-        <>
+        <div className="edit-delete-post-buttons">
           <Popup trigger={<button className="edit-button" onClick={handleEdit}>Edit</button>} modal nested>
             {close => <EditForm close={close} />}
           </Popup>
@@ -79,7 +79,7 @@ function UserPost() {
           <Popup trigger={<button className="delete-button" onClick={handleDelete}>Delete</button>} modal nested>
             <DeleteForm />
           </Popup>
-        </>
+        </div>
 
       }
       <ReviewFeed postId={postId} />

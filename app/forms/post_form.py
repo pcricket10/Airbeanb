@@ -3,6 +3,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, FloatField
 from wtforms.validators import DataRequired, URL
 
+# def check_length(length, max):
+
 
 class PostForm(FlaskForm):
     product_name = StringField("product_name", validators=[
