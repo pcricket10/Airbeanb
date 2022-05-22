@@ -84,7 +84,6 @@ export const addPost = (postData) => async (dispatch) => {
     return null
   } else if (response.status < 500) {
     const data = await response.json()
-    console.log(data.errors, "@####$#$Q$@#")
     if (data.errors) {
       return data.errors
     }
@@ -106,6 +105,16 @@ export const editPost = (post) => async (dispatch) => {
   if (response.ok) {
     dispatch(edit_Post(post))
     return post;
+  } else if (response.status < 500) {
+    const data = await response.json()
+    console.log(data.errors, "@####$#$Q$@#")
+    if (data.errors) {
+      return data.errors
+    }
+  } else {
+    const errors = await response.json()
+    console.log(errors)
+    return { errors: errors }
   }
 }
 

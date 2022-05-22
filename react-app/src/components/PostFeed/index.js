@@ -6,7 +6,7 @@ import "./PostFeed.css";
 
 function PostFeed() {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.session.user)
+
   const posts = useSelector(state => Object.values(state.posts))
 
   useEffect(() => {

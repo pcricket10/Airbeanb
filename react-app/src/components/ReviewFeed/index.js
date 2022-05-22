@@ -9,16 +9,13 @@ import "./ReviewFeed.css";
 function ReviewFeed({ postId }) {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
-  const posts = useSelector(state => Object.values(state.posts))
   const reviews = useSelector(state => Object.values(state.reviews))
   console.log(postId, "POST ID")
 
   useEffect(() => {
     dispatch(getPostReviews(postId))
-  }, [dispatch])
+  }, [postId, dispatch])
 
-  // const postsObject = useSelector(state => state.posts)
-  // const posts = Object.values(postsObject)
 
 
   return (

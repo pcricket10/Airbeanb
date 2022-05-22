@@ -1,12 +1,10 @@
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { addReview } from "../../store/reviews";
 import "./ReviewForm.css";
 
 const ReviewForm = ({ postId, close }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const [content, setContent] = useState('')
   const [errors, setErrors] = useState([])
 
@@ -33,7 +31,7 @@ const ReviewForm = ({ postId, close }) => {
 
       <form className="review-form">
         <div className='errors'>
-          {errors.map((error, ind) => (
+          {errors?.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>

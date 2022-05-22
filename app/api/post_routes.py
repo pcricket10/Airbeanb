@@ -79,7 +79,8 @@ def patch_post(id):
         post.edit_img_url(data['img_url'])
         db.session.commit()
         return post.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @post_routes.route('/<int:id>/', methods=["DELETE"])

@@ -23,6 +23,7 @@ function UserPost() {
       console.log(currentPost, "CURENTPOST")
       const response = await fetch(`/api/users/${currentPost?.user_id}`);
       const data = await response.json();
+      console.log(data, "DATA DATA DATA")
       setUserName(data?.username)
     })();
   }, [currentPost])
@@ -33,16 +34,16 @@ function UserPost() {
   }
   const handleDelete = async (e) => {
     e.preventDefault();
-    const response = await dispatch(deletePost(postId))
+    await dispatch(deletePost(postId))
     history.push('/')
-    console.log("delete")
   }
 
   console.log(postId)
+
   useEffect(() => {
     dispatch(getOnePost(postId))
 
-  }, [dispatch])
+  }, [postId, dispatch])
 
 
 

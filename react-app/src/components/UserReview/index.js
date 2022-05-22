@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useParams } from 'react-router-dom'
-import { getPostReviews } from "../../store/reviews";
 import Popup from "reactjs-popup";
 import { deleteReview } from "../../store/reviews";
 import ReviewDeleteForm from '../ReviewDeleteForm'
@@ -29,7 +27,7 @@ function UserReview({ review }) {
   }
   const handleDelete = async (e) => {
     e.preventDefault();
-    const response = await dispatch(deleteReview(review.id))
+    await dispatch(deleteReview(review.id))
   }
   return (
     <li className="review-container" key={review.id}>

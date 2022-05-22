@@ -15,6 +15,7 @@ def users():
 @user_routes.route('/<int:id>')
 def user(id):
     user = User.query.get(id)
+    print("\n\n\n\n\n\n\n", user.to_dict(), "\n\n\n\n\n\n\n",)
     return user.to_dict()
 
 

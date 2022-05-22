@@ -8,7 +8,6 @@ const EditForm = ({ close }) => {
   const post = useSelector(state => state.posts[+postId])
   console.log("post", post)
   const dispatch = useDispatch();
-  const history = useHistory();
   const [product_name, setProduct_name] = useState(post.product_name)
   const [location, setLocation] = useState(post.location)
   const [price, setPrice] = useState(post.price)
@@ -24,11 +23,11 @@ const EditForm = ({ close }) => {
     }
 
 
-    const response = await dispatch(editPost(editedPost))
+    const data = await dispatch(editPost(editedPost))
 
-    history.push(`/posts/${postId}`)
-    if (response?.errors) {
-      setErrors(response.errors)
+    if (data) {
+      console.log(data, "DATATATATA")
+      setErrors(data)
     } else {
       close()
     }
@@ -38,7 +37,7 @@ const EditForm = ({ close }) => {
       <h1>Edit</h1>
       <form className="post-form">
         <div className='errors'>
-          {errors.map((error, ind) => (
+          {errors?.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>

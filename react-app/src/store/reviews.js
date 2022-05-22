@@ -8,14 +8,6 @@ const ADD_REVIEW = 'review/ADD_REVIEW'
 const EDIT_REVIEW = 'review/EDIT_REVIEW'
 const DELETE_REVIEW = 'review/DELETE_REVIEW'
 
-const get_Reviews = (reviews) => ({
-  type: GET_REVIEWS,
-  reviews
-})
-const get_One_Review = (review) => ({
-  type: GET_ONE_REVIEW,
-  review
-})
 const get_Post_Reviews = (reviews) => ({
   type: GET_POST_REVIEWS,
   reviews
@@ -38,7 +30,6 @@ const delete_Review = (id) => ({
 
 
 export const getPostReviews = (id) => async (dispatch) => {
-  // console.log(id, "IDIDID")
   const response = await fetch(`/api/posts/${id}/reviews/`)
   // console.log(response, "response\n\n\n\n\n")
   if (response.ok) {
@@ -94,6 +85,16 @@ export const editReview = (review) => async (dispatch) => {
   if (response.ok) {
     dispatch(edit_Review(review))
     return review;
+  } else if (response.status < 500) {
+    const data = await response.json()
+    console.log(data.errors, "@####$#$Q$@#")
+    if (data.errors) {
+      return data.errors
+    }
+  } else {
+    const errors = await response.json()
+    console.log(errors)
+    return { errors: errors }
   }
 }
 
