@@ -25,6 +25,7 @@ class Post(db.Model):
             'price': self.price,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
+            'user': self.users.to_dict()
             # 'reviews': self.reviews.to_dict()
         }
 

@@ -40,7 +40,8 @@ margin-top: 0;
   display: flex;
   justify-content: space-evenly;
   border-radius: 40px;
-  border: 1px solid black
+  background-color: white;
+  box-shadow: 0 0 10px lightgray;
 }
 
 .edit-delete-post-buttons{

@@ -45,6 +45,7 @@ function App() {
         <Route path='/posts/:postId' exact={true}>
           <UserPost />
         </Route>
+
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList />
         </ProtectedRoute>
@@ -53,6 +54,9 @@ function App() {
         </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <HomePage />
+        </Route>
+        <Route>
+          <h1>404: Page not found</h1>
         </Route>
       </Switch>
     </BrowserRouter>
