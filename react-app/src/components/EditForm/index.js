@@ -26,9 +26,11 @@ const EditForm = ({ close }) => {
     const data = await dispatch(editPost(editedPost))
 
     if (data) {
-      console.log(data, "DATATATATA")
+      // console.log(data, "DATATATATA")
       setErrors(data)
+      console.log(errors, "ERRORS!!!")
     } else {
+      console.log("HMM")
       close()
     }
   }

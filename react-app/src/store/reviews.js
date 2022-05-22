@@ -84,7 +84,7 @@ export const editReview = (review) => async (dispatch) => {
   })
   if (response.ok) {
     dispatch(edit_Review(review))
-    return review;
+    return null;
   } else if (response.status < 500) {
     const data = await response.json()
     console.log(data.errors, "@####$#$Q$@#")

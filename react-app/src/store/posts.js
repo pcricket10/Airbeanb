@@ -104,7 +104,7 @@ export const editPost = (post) => async (dispatch) => {
   })
   if (response.ok) {
     dispatch(edit_Post(post))
-    return post;
+    return null;
   } else if (response.status < 500) {
     const data = await response.json()
     console.log(data.errors, "@####$#$Q$@#")
