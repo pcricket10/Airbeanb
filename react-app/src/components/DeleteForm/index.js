@@ -10,6 +10,7 @@ const DeleteForm = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const handleDelete = async (e) => {
+
     e.preventDefault();
     await dispatch(deletePost(postId))
     history.push('/')

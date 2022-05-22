@@ -1,12 +1,17 @@
 import { React } from "react";
+import { useDispatch } from "react-redux";
+import { deleteReview } from "../../store/reviews";
 
 
 
 
 const ReviewDeleteForm = ({ reviewId }) => {
-  console.log(reviewId)
+  const dispatch = useDispatch();
+
   const handleDelete = async (e) => {
+
     e.preventDefault();
+    await dispatch(deleteReview(reviewId))
   }
   return (
     <div className="delete">

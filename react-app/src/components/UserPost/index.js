@@ -17,7 +17,8 @@ function UserPost() {
   const { postId } = useParams()
   const [userName, setUserName] = useState("")
   const currentPost = posts[postId]
-
+  const createdAt = new Date(currentPost?.created_at).toLocaleString()
+  const updatedAt = new Date(currentPost?.updated_at).toLocaleString()
   useEffect(() => {
     (async () => {
       console.log(currentPost, "CURENTPOST")
@@ -51,7 +52,10 @@ function UserPost() {
     <div className="bean-container">
 
       <h2 className="bean-created">
-        Created: {new Date(currentPost?.created_at).toLocaleDateString()} by {userName ? userName : "loading"}
+        Created: {createdAt} {createdAt !== updatedAt ? <>(Edited: {updatedAt})</> : ""} by {userName ? userName : "loading"}
+
+      </h2>
+      <h2>
 
       </h2>
       <h1 className="bean-title">{currentPost?.product_name}</h1>
@@ -66,7 +70,6 @@ function UserPost() {
 
 
           <p>${currentPost?.price.toLocaleString(undefined, { minimumFractionDigits: 2 })} </p>
-          <p>Edited: {new Date(currentPost?.updated_at).toLocaleString()}</p>
           <p>Located at {currentPost?.location}</p>
         </div>
       </div>

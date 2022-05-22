@@ -6,7 +6,7 @@ body {
 .popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
-  width: 50%;
+  width: 60%;
   padding: 5px;
   border-radius: 20px;
   box-shadow: 0 0 10px black;
@@ -43,7 +43,7 @@ input {
 }
 textarea{
   height: 100px;
-  width: 80%;
+  width: 95%;
   margin: 10px;
   padding: 10px;
 }
@@ -56,4 +56,8 @@ textarea{
 }
 .delete-button{
   background-color: lightcoral;
+}
+.delete {
+  /* padding: 5px; */
+  margin: 10px;
 }
