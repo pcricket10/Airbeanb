@@ -31,11 +31,9 @@ const delete_Review = (id) => ({
 
 export const getPostReviews = (id) => async (dispatch) => {
   const response = await fetch(`/api/posts/${id}/reviews/`)
-  // console.log(response, "response\n\n\n\n\n")
   if (response.ok) {
 
     const data = await response.json();
-    console.log("DATA", data)
     dispatch(get_Post_Reviews(data))
   }
 }
@@ -62,13 +60,11 @@ export const addReview = (reviewData) => async (dispatch) => {
     return null
   } else if (response.status < 500) {
     const data = await response.json()
-    console.log(data.errors, "@####$#$Q$@#")
     if (data.errors) {
       return data.errors
     }
   } else {
     const errors = await response.json()
-    console.log(errors)
     return { errors: errors }
   }
 }
@@ -87,13 +83,11 @@ export const editReview = (review) => async (dispatch) => {
     return null;
   } else if (response.status < 500) {
     const data = await response.json()
-    console.log(data.errors, "@####$#$Q$@#")
     if (data.errors) {
       return data.errors
     }
   } else {
     const errors = await response.json()
-    console.log(errors)
     return { errors: errors }
   }
 }

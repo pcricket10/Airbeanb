@@ -15,7 +15,6 @@ def users():
 @user_routes.route('/<int:id>')
 def user(id):
     user = User.query.get(id)
-    print("\n\n\n\n\n\n\n", user.to_dict(), "\n\n\n\n\n\n\n",)
     return user.to_dict()
 
 
@@ -23,5 +22,4 @@ def user(id):
 @login_required
 def user_photos(id):
     posts = Post.query.filter_by(user_id=id)
-    print("\n\n\n\n\nhi hi hi\n\n\n\n\n")
     return {"posts": [post.to_dict() for post in posts]}

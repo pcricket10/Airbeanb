@@ -31,28 +31,7 @@ function UserPost() {
   }, [dispatch])
 
   const post = posts[postId]
-  console.log(post)
   const userName = post?.user?.username
-
-
-
-  // useEffect(() => {
-
-  //   if (posts[postId]) {
-  //     const user = fetchUser(posts[postId])
-  //     setUserName(user.userName)
-  //     setLoaded(true)
-  //   }
-
-  //   return () => {
-  //     console.log("hi")
-  //   }
-  //   // console.log(data, "DATA DATA DATA")
-
-  // }, [posts])
-
-
-
 
   const handleEdit = async (e) => {
     e.preventDefault();
@@ -63,7 +42,6 @@ function UserPost() {
     history.push('/')
   }
 
-  console.log(postId)
 
 
 
@@ -120,8 +98,6 @@ function UserPost() {
 
 
   )
-  // console.log(post, "POST")
-  // return (<h1>hi</h1>)
 
 }
 export default UserPost;

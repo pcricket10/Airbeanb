@@ -16,23 +16,9 @@ def all_posts():
     return jsonify(response)
 
 
-# @post_routes.route('/')
-# def user_posts():
-#     user = User.query.get(current_user.id)
-#     posts = user.posts
-#     response = {"posts": [post.to_dict() for post in posts]}
-#     return jsonify(response)
-
-# TODO implement later
-
-
 @post_routes.route('/<int:id>')
 def get_post(id):
     post = Post.query.get(id)
-    # reviews = Post.query.join(Review).filter(Review.post_id == id)
-    # # print("\n\n\n\n\n\n\n\n\n", type(post), "\n\n\n\n\n\n\n\n\n")
-    # response = {"reviews": [review.to_dict() for review in reviews]}
-    # print("\n\n\n\n\n\n\n\n\n", response, "\n\n\n\n\n\n\n\n\n")
 
     return post.to_dict()
 

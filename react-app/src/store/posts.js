@@ -53,7 +53,6 @@ export const getPosts = () => async (dispatch) => {
 
 export const getUserPosts = (id) => async (dispatch) => {
   const response = await fetch(`/api/users/${id}/posts/`)
-  console.log(response, "\n\n\n\n\n")
   if (response.ok) {
     const data = await response.json();
     dispatch(get_User_Posts(data))
@@ -63,8 +62,6 @@ export const getUserPosts = (id) => async (dispatch) => {
 export const addPost = (postData) => async (dispatch) => {
 
   const { product_name, location, price, img_url } = postData
-
-  console.log("attempting fetch")
   const response = await fetch('/api/posts/', {
     method: "POST",
     headers: {
@@ -89,7 +86,6 @@ export const addPost = (postData) => async (dispatch) => {
     }
   } else {
     const errors = await response.json()
-    console.log(errors)
     return { errors: errors }
   }
 }
@@ -107,13 +103,11 @@ export const editPost = (post) => async (dispatch) => {
     return null;
   } else if (response.status < 500) {
     const data = await response.json()
-    console.log(data.errors, "@####$#$Q$@#")
     if (data.errors) {
       return data.errors
     }
   } else {
     const errors = await response.json()
-    console.log(errors)
     return { errors: errors }
   }
 }

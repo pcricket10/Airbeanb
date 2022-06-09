@@ -6,7 +6,6 @@ import { editPost } from "../../store/posts";
 const EditForm = ({ close }) => {
   const { postId } = useParams()
   const post = useSelector(state => state.posts[+postId])
-  console.log("post", post)
   const dispatch = useDispatch();
   const [product_name, setProduct_name] = useState(post.product_name)
   const [location, setLocation] = useState(post.location)
@@ -26,11 +25,8 @@ const EditForm = ({ close }) => {
     const data = await dispatch(editPost(editedPost))
 
     if (data) {
-      // console.log(data, "DATATATATA")
       setErrors(data)
-      console.log(errors, "ERRORS!!!")
     } else {
-      console.log("HMM")
       close()
     }
   }

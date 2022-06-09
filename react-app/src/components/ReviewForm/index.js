@@ -18,7 +18,6 @@ const ReviewForm = ({ postId, close }) => {
 
     const data = await dispatch(addReview(newReview))
     if (data) {
-      console.log(data, "DATA")
       setErrors(data)
     } else {
       close();

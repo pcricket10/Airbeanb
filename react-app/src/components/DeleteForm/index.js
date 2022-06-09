@@ -14,7 +14,6 @@ const DeleteForm = () => {
     e.preventDefault();
     await dispatch(deletePost(postId))
     history.push('/')
-    console.log("delete")
   }
   return (
     <div className="delete">

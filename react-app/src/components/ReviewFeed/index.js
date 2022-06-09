@@ -10,7 +10,6 @@ function ReviewFeed({ postId }) {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
   const reviews = useSelector(state => Object.values(state.reviews))
-  console.log(postId, "POST ID")
 
   useEffect(() => {
     dispatch(getPostReviews(postId))
