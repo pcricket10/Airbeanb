@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import Popup from "reactjs-popup";
-import { deletePost, getOnePost, getPosts } from '../../store/posts';
+import { deletePost, getPosts } from '../../store/posts';
 import DeleteForm from '../DeleteForm';
 import EditForm from '../EditForm';
 import ReviewFeed from '../ReviewFeed';
