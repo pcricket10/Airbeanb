@@ -1,9 +1,9 @@
 import { React, useState } from "react";
-import Dropzone from 'react-dropzone';
-import AWS from 'aws-sdk';
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addPost } from "../../store/posts";
+import { useDropzone } from 'react-dropzone';
+import AWS from 'aws-sdk';
 import "./PostForm.css";
 
 
@@ -13,11 +13,17 @@ const PostForm = ({ close }) => {
   const [product_name, setProduct_name] = useState('')
   const [location, setLocation] = useState('')
   const [price, setPrice] = useState('')
-  // const [img_url, setImg_url] = useState('')
-  const [file, setFile] = useState(null)
+  const [img_url, setImg_url] = useState('')
   //files
   const [errors, setErrors] = useState([])
 
+  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
+
+  // const files = acceptedFiles.map(file => {
+  //   <li key={file.path}>
+  //     {file.path} - {file.size} bytes
+  //   </li>
+  // });
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -33,12 +39,6 @@ const PostForm = ({ close }) => {
 
     }
     history.push("/")
-  }
-  const onDrop = async files => {
-    const file = files[0];
-    setFile(file)
-    const fileName = file.name;
-    const fileType = file.type;
   }
 
 
@@ -66,16 +66,21 @@ const PostForm = ({ close }) => {
           <input type="decimal" value={price} onChange={e => setPrice(e.target.value)} required></input>
 
         </div>
-        {/* <div>
+        <div>
           <label>Image Url</label>
           <input type="text" value={img_url} onChange={e => setImg_url(e.target.value)} required></input>
 
-        </div> */}
+        </div>
         {/* adding dropzone here */}
         <div>
-          <label>Image</label>
-          <Dropzone onDrop={onDrop}>
-          </Dropzone>
+          <div {...getRootProps({ className: 'dropzone' })}>
+            <input {...getInputProps()} />
+            <p>Drag 'n' drop some files here, or click to select files</p>
+          </div>
+          <aside>
+            <h4>Files</h4>
+            <ul>{files}</ul>
+          </aside>
 
         </div>
         <div>
