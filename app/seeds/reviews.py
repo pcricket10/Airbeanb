@@ -2,15 +2,17 @@ from app.models import db, Review
 
 
 def seed_reviews():
-    review1 = Review(user_id="1", post_id="2",
+    review1 = Review(user_id="1", post_id="2", star_rating=4,
                      content="I like my beans to be green")
-    review2 = Review(user_id="1", post_id="3", content="mmmm beans")
-    review3 = Review(user_id="2", post_id="1",
+    review2 = Review(user_id="1", post_id="3", star_rating=5,
+                     content="mmmm beans")
+    review3 = Review(user_id="2", post_id="1", star_rating=2,
                      content="I paid $4.04 and got NOTHING! what a ripoff")
-    review4 = Review(user_id="2", post_id="3",
+    review4 = Review(user_id="2", post_id="3", star_rating=1,
                      content="yuck! 0/10 never again")
-    review5 = Review(user_id="3", post_id="1", content="Where's my beans???")
-    review6 = Review(user_id="3", post_id="4",
+    review5 = Review(user_id="3", post_id="1", star_rating=1,
+                     content="Where's my beans???")
+    review6 = Review(user_id="3", post_id="4", star_rating=4,
                      content="Are these really even beans?")
     db.session.add(review1)
     db.session.add(review2)

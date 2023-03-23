@@ -1,1 +1,2 @@
-hello world
+1. add star rating to reviews
+2. calculat average star rating
