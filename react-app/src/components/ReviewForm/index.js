@@ -35,6 +35,17 @@ const ReviewForm = ({ postId, close }) => {
           ))}
         </div>
         <div>
+          <input type="radio" name="star-rating" value="1" className="star-rating"></input>
+          {/* <label for="1">1</label> */}
+
+          <input type="radio" name="star-rating" value="2" className="star-rating"></input>
+          {/* <label for="2">2</label> */}
+          <input type="radio" name="star-rating" value="3" className="star-rating"></input>
+          {/* <label for="3">3</label> */}
+          <input type="radio" name="star-rating" value="4" className="star-rating"></input>
+          {/* <label for="4">4</label> */}
+          <input type="radio" name="star-rating" value="5" className="star-rating"></input>
+          {/* <label for="5">5</label> */}
           <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
 
         </div>

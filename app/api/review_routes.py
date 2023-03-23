@@ -19,6 +19,7 @@ def add_review():
         new_review = Review(
             user_id=current_user.id,
             post_id=post_id,
+            star_review=data["star_review"],
             content=data["content"]
         )
         db.session.add(new_review)

@@ -1,0 +1,10 @@
+input.star-rating{
+  appearance: none;
+  background-image: url("./star-black.png");
+  margin:1px;
+  width:30px;
+  height: 30px;
+}
+input.star-rating:checked{
+  background-image: url("./star-gold.png");
+}
