@@ -28,6 +28,9 @@ class Review(db.Model):
     def edit_content(self, content):
         self.content = content
         return content
+    def edit_rating(self, star_rating):
+        self.star_rating = star_rating
+        return star_rating
 
     users = db.relationship("User", back_populates="reviews")
     posts = db.relationship(

@@ -1,10 +1,15 @@
-input.star-rating{
+#star-rating{
+  display: flex;
+  flex-direction: row-reverse;
+  align-content: left;
+}
+input.star{
   appearance: none;
   background-image: url("./star-black.png");
   margin:1px;
   width:30px;
   height: 30px;
 }
-input.star-rating:checked{
+input.star:checked, input.star:checked ~ input.star{
   background-image: url("./star-gold.png");
 }

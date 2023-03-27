@@ -6,6 +6,8 @@ import "./ReviewForm.css";
 const ReviewForm = ({ postId, close }) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState('')
+  const [star_rating, setStar_rating] = useState('')
+
   const [errors, setErrors] = useState([])
 
   const handleSubmit = async (e) => {
@@ -13,6 +15,7 @@ const ReviewForm = ({ postId, close }) => {
 
     const newReview = {
       content,
+      star_rating,
       post_id: postId
     }
 
@@ -23,6 +26,19 @@ const ReviewForm = ({ postId, close }) => {
       close();
     }
   }
+  // const handleStarSelect = async (e) => {
+  //   e.preventDefault();
+  //   const selectedRating = e.target.value;
+  //   const reviewButtons = document.getElementsByClassName("star-rating");
+  //   console.log(reviewButtons)
+  //   // for (let i = 0; i <= 5; i++) {
+  //   //   reviewButtons[i].removeAttribute("class", "selected")
+  //   // }
+  //   for (let i = 0; i < selectedRating; i++) {
+  //     reviewButtons[i].setAttribute("class", "selected")
+  //     console.log(reviewButtons[i])
+  //   }
+  // }
 
   return (
     <div className="review-form-modal">
@@ -34,21 +50,15 @@ const ReviewForm = ({ postId, close }) => {
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <input type="radio" name="star-rating" value="1" className="star-rating"></input>
-          {/* <label for="1">1</label> */}
-
-          <input type="radio" name="star-rating" value="2" className="star-rating"></input>
-          {/* <label for="2">2</label> */}
-          <input type="radio" name="star-rating" value="3" className="star-rating"></input>
-          {/* <label for="3">3</label> */}
-          <input type="radio" name="star-rating" value="4" className="star-rating"></input>
-          {/* <label for="4">4</label> */}
-          <input type="radio" name="star-rating" value="5" className="star-rating"></input>
-          {/* <label for="5">5</label> */}
-          <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
+        <div id="star-rating" onChange={e => setStar_rating(e.target.value)} required>
+          <input type="radio" name="star-rating" value="5" className="star"></input>
+          <input type="radio" name="star-rating" value="4" className="star"></input>
+          <input type="radio" name="star-rating" value="3" className="star"></input>
+          <input type="radio" name="star-rating" value="2" className="star"></input>
+          <input type="radio" name="star-rating" value="1" className="star"></input>
 
         </div>
+        <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
         <div>
           <button type="submit" onClick={handleSubmit}>Submit</button>
         </div>

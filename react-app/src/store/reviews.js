@@ -40,7 +40,7 @@ export const getPostReviews = (id) => async (dispatch) => {
 
 export const addReview = (reviewData) => async (dispatch) => {
 
-  const { content, post_id } = reviewData
+  const { star_rating, content, post_id } = reviewData
 
 
   const response = await fetch('/api/reviews/', {
@@ -50,6 +50,7 @@ export const addReview = (reviewData) => async (dispatch) => {
     },
     body: JSON.stringify({
       post_id,
+      star_rating,
       content
     })
 
