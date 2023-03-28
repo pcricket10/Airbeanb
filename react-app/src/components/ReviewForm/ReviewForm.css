@@ -5,11 +5,11 @@
 }
 input.star{
   appearance: none;
-  background-image: url("./star-black.png");
+  background-image: url("../../images/star-black.png");
   margin:1px;
   width:30px;
   height: 30px;
 }
 input.star:checked, input.star:checked ~ input.star{
-  background-image: url("./star-gold.png");
+  background-image: url("../../images/star-gold.png");
 }

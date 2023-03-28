@@ -29,9 +29,22 @@ function UserReview({ review }) {
     e.preventDefault();
     await dispatch(deleteReview(review.id))
   }
+  const reviewArr = Array(5).fill("/images/star-black.png")
+  for (let i = 0; i < review?.star_rating; i++) {
+    reviewArr[i] = "/images/star-gold.png"
+  }
+
+  console.log(reviewArr);
   return (
     <li className="review-container" key={review.id}>
       <p>@{user?.username}</p>
+      {reviewArr.map((url, i) => (
+
+        <img src={url} key={i} alt="star" />
+      ))}
+
+      {/* review?.star_rating + "...." */}
+
       {review?.content}
       {(review?.user_id === sessionUser?.id) &&
         <div className="edit-delete-buttons">
