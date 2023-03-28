@@ -9,12 +9,13 @@ const ReviewEditForm = ({ reviewId, close }) => {
 
   const [content, setContent] = useState(review.content)
   const [errors, setErrors] = useState([])
-
+  const [star_rating, setStar_rating] = useState(review.star_rating)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const editedReview = {
       ...review,
+      star_rating,
       content
     }
 
@@ -37,6 +38,14 @@ const ReviewEditForm = ({ reviewId, close }) => {
         </div>
 
         <div>
+          <div id="star-rating" value={star_rating} onChange={e => setStar_rating(e.target.value)} required>
+            <input type="radio" name="star-rating" value="5" className="star"></input>
+            <input type="radio" name="star-rating" value="4" className="star"></input>
+            <input type="radio" name="star-rating" value="3" className="star"></input>
+            <input type="radio" name="star-rating" value="2" className="star"></input>
+            <input type="radio" name="star-rating" value="1" className="star"></input>
+
+          </div>
           <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
         </div>
         <div>

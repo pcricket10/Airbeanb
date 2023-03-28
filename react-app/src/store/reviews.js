@@ -71,13 +71,12 @@ export const addReview = (reviewData) => async (dispatch) => {
 }
 
 export const editReview = (review) => async (dispatch) => {
-  const { content } = review;
   const response = await fetch(`/api/reviews/${review.id}/`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ content })
+    body: JSON.stringify(review)
   })
   if (response.ok) {
     dispatch(edit_Review(review))

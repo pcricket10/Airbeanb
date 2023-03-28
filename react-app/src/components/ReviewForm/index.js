@@ -26,19 +26,6 @@ const ReviewForm = ({ postId, close }) => {
       close();
     }
   }
-  // const handleStarSelect = async (e) => {
-  //   e.preventDefault();
-  //   const selectedRating = e.target.value;
-  //   const reviewButtons = document.getElementsByClassName("star-rating");
-  //   console.log(reviewButtons)
-  //   // for (let i = 0; i <= 5; i++) {
-  //   //   reviewButtons[i].removeAttribute("class", "selected")
-  //   // }
-  //   for (let i = 0; i < selectedRating; i++) {
-  //     reviewButtons[i].setAttribute("class", "selected")
-  //     console.log(reviewButtons[i])
-  //   }
-  // }
 
   return (
     <div className="review-form-modal">
