@@ -8,9 +8,9 @@ const ADD_REVIEW = 'review/ADD_REVIEW'
 const EDIT_REVIEW = 'review/EDIT_REVIEW'
 const DELETE_REVIEW = 'review/DELETE_REVIEW'
 
-const get_Post_Reviews = (reviews) => ({
+const get_Post_Reviews = (reviews, avg_rating) => ({
   type: GET_POST_REVIEWS,
-  reviews
+  reviews, avg_rating
 })
 
 const add_Review = (review) => ({

@@ -1,3 +1,4 @@
+from sqlalchemy import func
 from app.api.auth_routes import validation_errors_to_error_messages
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
@@ -26,7 +27,9 @@ def get_post(id):
 @post_routes.route('/<int:id>/reviews/')
 def get_post_reviews(id):
     reviews = Review.query.join(Post).filter(Review.post_id == id)
-    return {"reviews": [review.to_dict() for review in reviews]}
+    avg_rating = float(db.session.query(func.avg(Review.star_rating)).scalar())
+    # print("\n\n\n\n\n\n", reviews, "reviews\n\n\n\n\n\n\n")
+    return {"reviews": [review.to_dict() for review in reviews], "avg_rating": avg_rating}
 
 
 @post_routes.route('/', methods=["POST"])
