@@ -45,6 +45,7 @@ const ReviewEditForm = ({ reviewId, close }) => {
             <input type="radio" name="star-rating" value="2" className="star"></input>
             <input type="radio" name="star-rating" value="1" className="star"></input>
 
+
           </div>
           <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
         </div>
