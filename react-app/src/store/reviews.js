@@ -40,7 +40,7 @@ export const getPostReviews = (id) => async (dispatch) => {
 
 export const addReview = (reviewData) => async (dispatch) => {
 
-  const { content, post_id } = reviewData
+  const { star_rating, content, post_id } = reviewData
 
 
   const response = await fetch('/api/reviews/', {
@@ -50,6 +50,7 @@ export const addReview = (reviewData) => async (dispatch) => {
     },
     body: JSON.stringify({
       post_id,
+      star_rating,
       content
     })
 
@@ -70,13 +71,12 @@ export const addReview = (reviewData) => async (dispatch) => {
 }
 
 export const editReview = (review) => async (dispatch) => {
-  const { content } = review;
   const response = await fetch(`/api/reviews/${review.id}/`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ content })
+    body: JSON.stringify(review)
   })
   if (response.ok) {
     dispatch(edit_Review(review))

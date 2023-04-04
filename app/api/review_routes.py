@@ -14,11 +14,13 @@ def add_review():
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     post_id = request.json['post_id']
+    print('request.json', request.json)
     if form.validate_on_submit():
         data = form.data
         new_review = Review(
             user_id=current_user.id,
             post_id=post_id,
+            star_rating=data["star_rating"],
             content=data["content"]
         )
         db.session.add(new_review)
@@ -38,6 +40,7 @@ def patch_post(id):
         review = Review.query.get(id)
         data = form.data
         review.edit_content(data['content'])
+        review.edit_rating(data['star_rating'])
         db.session.commit()
         return review.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
