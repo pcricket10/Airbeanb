@@ -17,7 +17,6 @@ nav {
   display: flex;
   flex-direction: row;
   background-color: lightgray;
-  text-align: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -40,4 +39,8 @@ nav {
 }
 .active .nav-button{
   border-bottom: 5px solid black;
+}
+.hamburger-menu{
+  /* font-size: large; */
+  margin-right: 50px;
 }
