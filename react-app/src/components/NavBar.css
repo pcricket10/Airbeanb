@@ -15,7 +15,7 @@ nav {
   display: flex;
   flex-direction: row;
   background-color: lightgray;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -24,29 +24,46 @@ nav {
 }
 
 .nav-button{
-  width: 100px;
+  width: 90px;
   height: 50px;
   border: 0;
-  border-bottom: 5px solid transparent;
-  background-color: white;
+  /* border-bottom: 5px solid transparent; */
+  background-color: transparent;
 }
 
 .nav-button:hover{
-  border-bottom: 5px solid gray;
+  background-color: rgb(240, 240, 240);
 
 }
-.active .nav-button{
+/* .active .nav-button{
   border-bottom: 5px solid black;
-}
+} */
 .hamburger-menu{
   /* font-size: large; */
+  font-size: x-large;
   width: 100px;
+
+  /* margin-right: 50px; */
+  position:fixed;
+  top: 0;
+  right:0;
+  /* border: 1px solid black;
+  border-radius: 100px; */
+  padding: 5px;
+}
+
+.hamburger-text{
+  border: 1px solid black;
+  border-radius: 100px;
+  margin: 0;
+  padding: 5px;
+}
+
+.dropped-menu{
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
   align-items:center;
-  /* margin-right: 50px; */
-  position:absolute;
-  top: 0;
-  right:0;
-  border: 1px solid lightgray;
+  border: 1px solid black;
+  border-radius: 5px;
 }

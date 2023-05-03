@@ -20,9 +20,9 @@ const NavBar = ({ isLoaded }) => {
           <button className='nav-button'> Home</button>
         </NavLink>
       </div>
-      <div className='hamburger-menu' onClick={handleMenuClick}><p>MENU</p>
+      <div className='hamburger-menu' onClick={handleMenuClick}><p className='hamburger-text'>|||___(0)</p>
         {menuOpen && (
-          <>
+          <div className='dropped-menu'>
             {!sessionUser && (
               <>
                 <NavLink to='/login' exact={true} activeClassName='active'>
@@ -44,7 +44,7 @@ const NavBar = ({ isLoaded }) => {
                 <LogoutButton />
               </>
             )}
-          </>
+          </div>
         )}
       </div>
     </nav>

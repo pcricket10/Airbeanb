@@ -75,8 +75,8 @@ textarea{
 button {
   height: 25px;
   width: 150px;
-  border-radius: 5px;
-  background-color: gray;
+  /* border-radius: 5px; */
+  /* background-color: gray; */
 }
 p {
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
