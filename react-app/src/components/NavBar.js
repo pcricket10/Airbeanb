@@ -15,39 +15,37 @@ const NavBar = ({ isLoaded }) => {
   }
   return (
     <nav>
-      <div className='nav-wrapper'>
-        <div className='nav-button-container'>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            <button className='nav-button'> Home</button>
-          </NavLink>
-        </div>
-        <div className='hamburger-menu' onClick={handleMenuClick}><p>MENU</p>
-          {menuOpen && (
-            <>
-              {!sessionUser && (
-                <>
-                  <NavLink to='/login' exact={true} activeClassName='active'>
-                    <button className='nav-button'>Login </button>
-                  </NavLink>
-                  <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                    <button className='nav-button'>Sign Up </button>
-                  </NavLink>
-                </>
+      <div className='nav-button-container'>
+        <NavLink to='/' exact={true} activeClassName='active'>
+          <button className='nav-button'> Home</button>
+        </NavLink>
+      </div>
+      <div className='hamburger-menu' onClick={handleMenuClick}><p>MENU</p>
+        {menuOpen && (
+          <>
+            {!sessionUser && (
+              <>
+                <NavLink to='/login' exact={true} activeClassName='active'>
+                  <button className='nav-button'>Login </button>
+                </NavLink>
+                <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                  <button className='nav-button'>Sign Up </button>
+                </NavLink>
+              </>
 
-              )}
-              {sessionUser && (
-                <>
+            )}
+            {sessionUser && (
+              <>
 
-                  <Popup trigger={<button className='nav-button'>New</button>}
-                    modal nested>
-                    {close => <PostForm close={close} />}
-                  </Popup>
-                  <LogoutButton />
-                </>
-              )}
-            </>
-          )}
-        </div>
+                <Popup trigger={<button className='nav-button'>New</button>}
+                  modal nested>
+                  {close => <PostForm close={close} />}
+                </Popup>
+                <LogoutButton />
+              </>
+            )}
+          </>
+        )}
       </div>
     </nav>
   );
