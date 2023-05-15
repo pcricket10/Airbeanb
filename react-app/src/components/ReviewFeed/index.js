@@ -11,6 +11,10 @@ function ReviewFeed({ postId }) {
   const user = useSelector(state => state.session.user)
   const reviews = useSelector(state => Object.values(state.reviews))
 
+  const reviewsSum = reviews.reduce((acc, obj) => acc + obj.star_rating, 0);
+  const reviewAverage = reviewsSum / reviews.length;
+
+
   useEffect(() => {
     dispatch(getPostReviews(postId))
   }, [postId, dispatch])
@@ -25,7 +29,9 @@ function ReviewFeed({ postId }) {
         </Popup>
       }
       <ul className="review-feed">
+        <p>average: {reviewAverage}</p>
         {
+
           reviews.map(review => (
             <UserReview key={review.id} review={review} />
 
