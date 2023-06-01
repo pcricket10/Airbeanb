@@ -17,9 +17,49 @@ const NavBar = ({ isLoaded }) => {
     <nav>
       <div className='nav-button-container'>
         <NavLink to='/' exact={true} activeClassName='active'>
-          <button className='nav-button'> Home</button>
+          <button className='nav-button'> AirBeanB</button>
         </NavLink>
+        {sessionUser && (
+          <Popup trigger={<button className='nav-button'>AirBeanB your Beans</button>}
+            modal nested>
+            {close => <PostForm close={close} />}
+          </Popup>
+        )}
+
+        <table className='bean-list'>
+          <tr>
+            <td>Beanfront</td>
+            <td>Beans</td>
+            <td>Bean Cabins</td>
+            <td>Amazing Beans</td>
+            <td>Bean farms</td>
+            <td>Bean Golf</td>
+            <td>Big Beans</td>
+            <td>Water Beans</td>
+            <td>Swimming in Beans</td>
+            <td>OMB!</td>
+            <td>Beanhouses</td>
+            <td>Tiny Beans</td>
+            <td>Hot Beans</td>
+            <td>Lake Beans</td>
+            <td>Bean Castles</td>
+            <td>Fun Beans</td>
+            <td>Fancy Beans</td>
+            <td>Free-Range Beans</td>
+            <td>Island Beans</td>
+            <td>Bean Containers</td>
+            <td>Lake Beans</td>
+            <td>House Beans</td>
+            <td>Yeehaw Beans</td>
+            <td>Bean Camping</td>
+            <td>Bean Domes</td>
+            <td>Tropical Beans</td>
+
+          </tr>
+        </table>
       </div>
+
+
       <div className='hamburger-menu' onClick={handleMenuClick}><p className='hamburger-text'>{sessionUser ? sessionUser.username : "Log In"}</p>
         {menuOpen && (
           <div className='dropped-menu'>
@@ -37,17 +77,22 @@ const NavBar = ({ isLoaded }) => {
             {sessionUser && (
               <>
 
-                <Popup trigger={<button className='nav-button'>New</button>}
+                <Popup trigger={<button className='nav-button'>AirBeanB your Beans</button>}
                   modal nested>
                   {close => <PostForm close={close} />}
                 </Popup>
                 <LogoutButton />
               </>
             )}
+
           </div>
         )}
+
       </div>
+
+
     </nav>
+
   );
 }
 
