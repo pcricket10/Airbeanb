@@ -9,17 +9,22 @@ a {
 nav {
   width: 100%;
   margin-top: 0;
-
+}
+.bean-list{
+  margin-top: 50px;
+  position: fixed;
+  background-color: white;
 }
 .nav-button-container{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-color: lightgray;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  margin: 0;
+  padding-right: 6%;
   box-shadow: 0 2px 5px lightgray;
 }
 
@@ -39,6 +44,7 @@ nav {
   border-bottom: 5px solid black;
 } */
 .hamburger-menu{
+
   /* font-size: large; */
   font-size: x-large;
   width: 100px;
@@ -51,8 +57,12 @@ nav {
   border-radius: 100px; */
   padding: 5px;
 }
+.hamburger-menu :hover{
+  box-shadow: 0 2px 0 0 gray;
+}
 
 .hamburger-text{
+  background-color: white;
   border: 1px solid black;
   border-radius: 100px;
   margin: 0;

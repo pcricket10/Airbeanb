@@ -9,6 +9,7 @@ function HomePage() {
     <>
       <h1>Welcome to AirBeanb!</h1>
       <h2>Find bean farmers from around the world!</h2>
+
       <PostFeed />
       <About />
     </>
