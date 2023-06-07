@@ -7,13 +7,16 @@ function HomePage() {
 
   return (
     <>
-      <h1>Welcome to AirBeanb!</h1>
-      <h2>Find bean farmers from around the world!</h2>
-
-      <PostFeed />
+      <div className='main'>
+        <div className='total-price'>
+          Display total price   |   includes all fees, before taxes (@)__)
+        </div>
+        <PostFeed />
+      </div>
       <About />
     </>
   )
+
 }
 
 export default HomePage
