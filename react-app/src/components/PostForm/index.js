@@ -33,7 +33,7 @@ const PostForm = ({ close }) => {
 
   return (
     <div className="post-form-modal">
-      <h1>Post New Listing</h1>
+      <h2 className="modal-title">Post New Listing</h2>
 
       <form className="post-form">
         <div className="errors">

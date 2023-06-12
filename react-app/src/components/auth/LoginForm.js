@@ -40,6 +40,7 @@ const LoginForm = () => {
 
   return (
     <>
+      <h2 className='modal-title'>Log In</h2>
       <form onSubmit={onLogin}>
         <div className='errors'>
           {errors.map((error, ind) => (

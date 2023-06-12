@@ -29,7 +29,7 @@ const ReviewForm = ({ postId, close }) => {
 
   return (
     <div className="review-form-modal">
-      <h1>Post New Review</h1>
+      <h2 className="modal-title">Post New Review</h2>
 
       <form className="review-form">
         <div className='errors'>
