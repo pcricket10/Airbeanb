@@ -81,7 +81,11 @@ textarea{
   margin: 10px;
 }
 .signup-button, .login{
-  background-color: lightgreen;
+  background-color: hotpink;
+  height:40px;
+  border-radius: 10px;
+  font-size: large;
+  width: 100%;
 
 }
 .main{
