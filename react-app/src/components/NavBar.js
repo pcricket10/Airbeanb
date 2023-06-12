@@ -6,6 +6,8 @@ import Popup from 'reactjs-popup';
 import LogoutButton from './auth/LogoutButton';
 import "./NavBar.css";
 import PostForm from './PostForm';
+import LoginForm from './auth/LoginForm'
+import SignUpForm from './auth/SignUpForm'
 
 const NavBar = ({ isLoaded }) => {
   const sessionUser = useSelector(state => state.session.user);
@@ -65,12 +67,14 @@ const NavBar = ({ isLoaded }) => {
           <div className='dropped-menu'>
             {!sessionUser && (
               <>
-                <NavLink to='/login' exact={true} activeClassName='active'>
-                  <button className='nav-button'>Login </button>
-                </NavLink>
-                <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                  <button className='nav-button'>Sign Up </button>
-                </NavLink>
+                <Popup trigger={<button className='nav-button'>Login</button>}
+                  modal nested>
+                  {close => <LoginForm close={close} />}
+                </Popup>
+                <Popup trigger={<button className='nav-button'>Sign Up</button>}
+                  modal nested>
+                  {close => <SignUpForm close={close} />}
+                </Popup>
               </>
 
             )}
