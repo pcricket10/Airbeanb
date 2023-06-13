@@ -47,7 +47,7 @@ const ReviewForm = ({ postId, close }) => {
         </div>
         <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
         <div>
-          <button type="submit" onClick={handleSubmit}>Submit</button>
+          <button className="submit" type="submit" onClick={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>

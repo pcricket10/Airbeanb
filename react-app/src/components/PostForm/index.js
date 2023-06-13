@@ -41,27 +41,43 @@ const PostForm = ({ close }) => {
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label>Product Name</label>
-          <input type="text" value={product_name} onChange={e => setProduct_name(e.target.value)} required></input>
-        </div>
+        <input
+          name="product_name"
+          type="text"
+          placeholder="Product Name"
+          value={product_name}
+          onChange={e => setProduct_name(e.target.value)}
+          required>
+
+        </input>
+        <input
+          name="location"
+          type="text"
+          placeholder="Location"
+          value={location}
+          onChange={e => setLocation(e.target.value)}
+          required>
+        </input>
+        <input
+          name="price"
+          type="decimal"
+          placeholder="Price"
+          value={price}
+          onChange={e => setPrice(e.target.value)}
+          required>
+        </input>
+
+
+        <input
+          name="img_url"
+          type="text"
+          placeholder="Image URL"
+          value={img_url}
+          onChange={e => setImg_url(e.target.value)}
+          required></input>
 
         <div>
-          <label>Location</label>
-          <input type="text" value={location} onChange={e => setLocation(e.target.value)} required></input>
-        </div>
-        <div>
-          <label>Price</label>
-          <input type="decimal" value={price} onChange={e => setPrice(e.target.value)} required></input>
-
-        </div>
-        <div>
-          <label>Image Url</label>
-          <input type="text" value={img_url} onChange={e => setImg_url(e.target.value)} required></input>
-
-        </div>
-        <div>
-          <button type="submit" onClick={handleSubmit}>Submit</button>
+          <button className="submit" type="submit" onClick={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>

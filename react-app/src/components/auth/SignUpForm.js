@@ -62,69 +62,64 @@ const SignUpForm = () => {
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label>User Name</label>
-          <input
-            type='text'
-            name='username'
-            onChange={updateUsername}
-            value={username}
-            required={true}
-          ></input>
-        </div>
 
-        <div>
-          <label>First Name</label>
-          <input
-            type='text'
-            name='first_name'
-            onChange={updateFirstName}
-            value={firstName}
-            required={true}
-          ></input>
-        </div>
+        <input
+          type='text'
+          name='username'
+          placeholder='User Name'
+          onChange={updateUsername}
+          value={username}
+          required={true}
+        ></input>
 
-        <div>
-          <label>Last Name</label>
-          <input
-            type='text'
-            name='last_name'
-            onChange={updateLastName}
-            value={lastName}
-            required={true}
-          ></input>
-        </div>
-        <div>
-          <label>Email</label>
-          <input
-            type='text'
-            name='email'
-            onChange={updateEmail}
-            value={email}
-            required={true}
-          ></input>
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type='password'
-            name='password'
-            onChange={updatePassword}
-            value={password}
-            required={true}
-          ></input>
-        </div>
-        <div>
-          <label>Repeat Password</label>
-          <input
-            type='password'
-            name='repeat_password'
-            onChange={updateRepeatPassword}
-            value={repeatPassword}
-            required={true}
-          ></input>
-        </div>
-        <button className='signup-button' type='submit'>Sign Up</button>
+
+        <input
+          type='text'
+          name='first_name'
+          placeholder='First Name'
+          onChange={updateFirstName}
+          value={firstName}
+          required={true}
+        ></input>
+
+
+        <input
+          type='text'
+          name='last_name'
+          placeholder='Last Name'
+          onChange={updateLastName}
+          value={lastName}
+          required={true}
+        ></input>
+
+        <input
+          type='text'
+          name='email'
+          placeholder='Email'
+          onChange={updateEmail}
+          value={email}
+          required={true}
+        ></input>
+
+        <input
+          type='password'
+          name='password'
+          placeholder='Password'
+          onChange={updatePassword}
+          value={password}
+          required={true}
+        ></input>
+
+        <input
+          type='password'
+          name='repeat_password'
+          placeholder='Repeat Password'
+          onChange={updateRepeatPassword}
+          value={repeatPassword}
+          required={true}
+        ></input>
+
+        <button className='submit' type='submit'>Sign Up</button>
       </form>
     </>
   );

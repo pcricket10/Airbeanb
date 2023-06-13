@@ -47,30 +47,26 @@ const LoginForm = () => {
             <div key={ind}>{error}</div>
           ))}
         </div>
-        <div>
-          <label htmlFor='email'>Email</label>
-          <input
-            name='email'
-            type='text'
-            placeholder='Email'
-            value={email}
-            onChange={updateEmail}
-          />
-        </div>
-        <div>
-          <label htmlFor='password'>Password</label>
-          <input
-            name='password'
-            type='password'
-            placeholder='Password'
-            value={password}
-            onChange={updatePassword}
-          />
-        </div>
-        <button className='login' type='submit'>Login</button>
+        <input
+          name='email'
+          type='text'
+          placeholder='Email'
+          value={email}
+          onChange={updateEmail}
+        />
+
+        <input
+          name='password'
+          type='password'
+          placeholder='Password'
+          value={password}
+          onChange={updatePassword}
+        />
+
+        <button className='submit' type='submit'>Login</button>
       </form>
       <form className='demo-login'>
-        <button className='login' type='submit' onClick={demoLogin}>Demo User Login</button>
+        <button className='submit' type='submit' onClick={demoLogin}>Demo User Login</button>
 
       </form>
     </>
