@@ -29,7 +29,7 @@ const ReviewForm = ({ postId, close }) => {
 
   return (
     <div className="review-form-modal">
-      <h1>Post New Review</h1>
+      <h2 className="modal-title">Post New Review</h2>
 
       <form className="review-form">
         <div className='errors'>
@@ -47,7 +47,7 @@ const ReviewForm = ({ postId, close }) => {
         </div>
         <textarea value={content} onChange={e => setContent(e.target.value)} required></textarea>
         <div>
-          <button type="submit" onClick={handleSubmit}>Submit</button>
+          <button className="submit" type="submit" onClick={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>

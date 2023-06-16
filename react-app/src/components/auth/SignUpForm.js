@@ -54,76 +54,74 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div className='errors'>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label>User Name</label>
+    <>
+      <h2 className='modal-title'>Sign up</h2>
+      <form onSubmit={onSignUp}>
+        <div className='errors'>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
+
         <input
           type='text'
           name='username'
+          placeholder='User Name'
           onChange={updateUsername}
           value={username}
           required={true}
         ></input>
-      </div>
 
-      <div>
-        <label>First Name</label>
+
         <input
           type='text'
           name='first_name'
+          placeholder='First Name'
           onChange={updateFirstName}
           value={firstName}
           required={true}
         ></input>
-      </div>
 
-      <div>
-        <label>Last Name</label>
+
         <input
           type='text'
           name='last_name'
+          placeholder='Last Name'
           onChange={updateLastName}
           value={lastName}
           required={true}
         ></input>
-      </div>
-      <div>
-        <label>Email</label>
+
         <input
           type='text'
           name='email'
+          placeholder='Email'
           onChange={updateEmail}
           value={email}
           required={true}
         ></input>
-      </div>
-      <div>
-        <label>Password</label>
+
         <input
           type='password'
           name='password'
+          placeholder='Password'
           onChange={updatePassword}
           value={password}
           required={true}
         ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
+
         <input
           type='password'
           name='repeat_password'
+          placeholder='Repeat Password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
         ></input>
-      </div>
-      <button className='signup-button' type='submit'>Sign Up</button>
-    </form>
+
+        <button className='submit' type='submit'>Sign Up</button>
+      </form>
+    </>
   );
 };
 

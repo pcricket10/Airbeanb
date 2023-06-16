@@ -8,7 +8,7 @@ body {
   margin: auto;
   background: rgb(255, 255, 255);
   background-color: lightgray;
-  width: 60%;
+  width: 40%;
   padding: 5px;
   border-radius: 20px;
   box-shadow: 0 0 10px black;
@@ -29,30 +29,47 @@ body {
 }
 
 h1,h2 {
-  text-align: center;
+  text-align: left;
+  /* margin-left:10%; */
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
-
-
-form div{
-  margin: 10px;
+.modal-title {
+  text-align: center;
+  border-bottom:1px solid gray;
+  padding-bottom: 10px;
 }
+
+
+
 form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   background-color: lightgray;
-  padding: 10px;
   border-radius: 10px;
 }
-input:not([type=radio]) {
-  position: absolute;
-  right: 10%;
+input{
 
-  width:60%;
+  border-radius: 10px;
+  font-size: large;
+  padding: 10px;
+  margin: 10px;
 }
 textarea{
   height: 100px;
   width: 95%;
   margin: 10px;
   padding: 10px;
+}
+.submit{
+  background-color: hotpink;
+  height:40px;
+  border-radius: 10px;
+  font-size: large;
+  width: 95%;
+  padding: 10px;
+  margin: 10px;
+
 }
 .errors div {
   color: red
@@ -68,8 +85,21 @@ textarea{
   /* padding: 5px; */
   margin: 10px;
 }
-.signup-button, .login{
-  background-color: lightgreen;
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left:10%;
+  margin-right:10%;
+}
+.total-price{
+  border:1px solid gray;
+  border-radius: 10px;
+  width: 450px;
+  padding: 10px 5px 10px 5px;
+
+
 
 }
 button {
