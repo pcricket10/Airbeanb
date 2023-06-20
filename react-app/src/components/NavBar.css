@@ -14,18 +14,20 @@ nav {
   margin-top: 50px;
   position: fixed;
   background-color: white;
+  border-top: 1px solid lightgray;
+  box-shadow: 0 6px 8px 0 lightgray
 }
 .nav-button-container{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: lightgray;
+  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding-right: 6%;
-  box-shadow: 0 2px 5px lightgray;
+  /* box-shadow: 0 2px 5px lightgray; */
 }
 
 .nav-button{
@@ -73,7 +75,7 @@ nav {
 }
 
 .dropped-menu{
-  background-color: lightgray;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items:center;
