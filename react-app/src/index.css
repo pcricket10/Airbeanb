@@ -1,21 +1,21 @@
 /* TODO Add site wide styles */
 body {
   margin-top: 150px;
-  background-color: rgb(240,240,240)
 }
 
 .popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
-  background-color: lightgray;
   width: 40%;
   padding: 5px;
   border-radius: 20px;
   box-shadow: 0 0 10px black;
 }
+
 .popup-arrow {
   color: rgb(255, 255, 255);
 }
+
 [role='tooltip'].popup-content {
   width: 200px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
@@ -24,18 +24,21 @@ body {
 .popup-overlay {
   background: rgba(0, 0, 0, 0.5);
 }
+
 [data-popup='tooltip'].popup-overlay {
   background: transparent;
 }
 
-h1,h2 {
+h1,
+h2 {
   text-align: left;
   /* margin-left:10%; */
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+
 .modal-title {
   text-align: center;
-  border-bottom:1px solid gray;
+  border-bottom: 1px solid gray;
   padding-bottom: 10px;
 }
 
@@ -45,25 +48,29 @@ form {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background-color: lightgray;
   border-radius: 10px;
 }
-input{
 
-  border-radius: 10px;
+input {
+
+  /* border-radius: 10px; */
   font-size: large;
   padding: 10px;
-  margin: 10px;
+  /* margin: 10px; */
+  margin-left: 20px;
+  margin-right: 20px;
 }
-textarea{
+
+textarea {
   height: 100px;
   width: 95%;
   margin: 10px;
   padding: 10px;
 }
-.submit{
+
+.submit {
   background-color: hotpink;
-  height:40px;
+  height: 40px;
   border-radius: 10px;
   font-size: large;
   width: 95%;
@@ -71,30 +78,34 @@ textarea{
   margin: 10px;
 
 }
+
 .errors div {
   color: red
 }
 
-.delete-message{
-  color:red
+.delete-message {
+  color: red
 }
-.delete-button{
+
+.delete-button {
   background-color: lightcoral;
 }
+
 .delete {
   /* padding: 5px; */
   margin: 10px;
 }
 
-.main{
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left:10%;
-  margin-right:10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
-.total-price{
-  border:1px solid gray;
+
+.total-price {
+  border: 1px solid gray;
   border-radius: 10px;
   width: 450px;
   padding: 10px 5px 10px 5px;
@@ -102,15 +113,16 @@ textarea{
 
 
 }
+
 button {
   height: 25px;
-  width: 150px;
-  /* border-radius: 5px; */
-  /* background-color: gray; */
+
 }
+
 p {
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+
 label {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
